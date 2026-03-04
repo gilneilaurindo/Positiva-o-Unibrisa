@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trilha de Aprendizado - Positivação Unibrisa</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brisa: {
+                            orange: '#FF7E50',
+                            blue: '#2242D4',
+                            dark: '#1A34A8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Figtree', 'sans-serif'],
+                        heading: ['Figtree', 'sans-serif'],
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-x': 'bounce-x 1s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 3s infinite',
+                        'spin-slow': 'spin-slow 15s linear infinite',
+                        'wiggle': 'wiggle 1s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        'bounce-x': {
+                            '0%, 100%': { transform: 'translateX(-25%)', animationTimingFunction: 'cubic-bezier(0.8,0,1,1)' },
+                            '50%': { transform: 'none', animationTimingFunction: 'cubic-bezier(0,0,0.2,1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        },
+                        'spin-slow': {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles for things Tailwind is too verbose for */
+        body {
+            background-color: #FF7E50;
+            background-image: url('https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Plano%20de%20fundo.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Halftone dot pattern overlay similar to the image */
+        .pattern-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.1) 2px, transparent 2px);
+            background-size: 20px 20px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Timeline specific styles */
+        .timeline-line {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+        @media (min-width: 768px) {
+            .timeline-line {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .timeline-item:nth-child(odd) .timeline-content { margin-left: auto; pl-8; text-align: left; }
+            .timeline-item:nth-child(even) .timeline-content { margin-right: auto; pr-8; text-align: right; }
+            .timeline-item:nth-child(even) .timeline-content .flex { flex-direction: row-reverse; }
+        }
+
+        /* Glassmorphism cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #FF7E50; }
+        ::-webkit-scrollbar-thumb { background: rgba(34,66,212,0.8); border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(34,66,212,1); }
+    </style>
+</head>
+<body class="antialiased font-sans relative">
+    <div class="pattern-overlay"></div>
+
+    <!-- Background Blobs for Animation -->
+    <div class="fixed top-0 -left-4 w-72 h-72 bg-white opacity-10 rounded-full mix-blend-multiply filter blur-xl animate-blob z-[-1]"></div>
+    <div class="fixed top-0 -right-4 w-72 h-72 bg-brisa-blue opacity-30 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000 z-[-1]"></div>
+    <div class="fixed -bottom-8 left-20 w-72 h-72 bg-white opacity-10 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000 z-[-1]"></div>
+
+    <!-- Floating Learning Icons (Background) -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <i class="fa-solid fa-graduation-cap absolute top-[15%] left-[10%] text-6xl text-white/10 animate-float"></i>
+        <i class="fa-solid fa-book-open-reader absolute top-[25%] right-[15%] text-7xl text-white/10 animate-float-delayed"></i>
+        <i class="fa-solid fa-brain absolute bottom-[30%] left-[20%] text-8xl text-white/5 animate-pulse-slow"></i>
+        <i class="fa-solid fa-lightbulb absolute bottom-[20%] right-[10%] text-5xl text-yellow-300/10 animate-float"></i>
+        <i class="fa-solid fa-laptop-code absolute top-[50%] left-[5%] text-5xl text-white/10 animate-float-delayed"></i>
+        <i class="fa-solid fa-chalkboard-user absolute top-[60%] right-[5%] text-6xl text-white/10 animate-float"></i>
+    </div>
+
+    <!-- Header / Hero Section -->
+    <header class="min-h-screen flex flex-col justify-center items-center text-center p-6 relative z-10">
+        <div class="reveal active w-full max-w-4xl mx-auto flex flex-col items-center">
+            
+            <!-- Logo Icon (Representing Unibrisa Circuit) -->
+            <div class="w-24 h-24 mb-6 rounded-full border-4 border-white flex items-center justify-center bg-white/10 relative hover:scale-110 transition-transform duration-500 group">
+                <i class="fa-solid fa-microchip text-5xl text-white group-hover:animate-spin-slow"></i>
+                <div class="absolute -top-2 -right-2 w-6 h-6 bg-white rounded-full flex items-center justify-center animate-bounce">
+                    <i class="fa-solid fa-bolt text-brisa-orange text-xs"></i>
+                </div>
+            </div>
+
+            <h1 class="font-heading text-4xl sm:text-5xl md:text-7xl tracking-tight mb-4 drop-shadow-lg leading-tight hover:animate-wiggle cursor-default">
+                <span class="font-extrabold block">Programação</span>
+                <span class="font-normal block text-3xl sm:text-4xl md:text-6xl mt-2">Aniversário</span>
+                <span class="font-bold text-white border-b-4 border-white pb-2 inline-block mt-4">Unibrisa</span>
+            </h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-10 md:py-16 max-w-6xl">
+
+        <!-- SECTION: PROGRAMAÇÃO -->
+        <section id="programacao" class="mb-24 pt-10">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-heading font-extrabold text-4xl md:text-5xl mb-4"><i class="fa-solid fa-calendar-days mr-3"></i> Programação Oficial</h2>
+                <p class="text-xl opacity-90">Confira a agenda completa das ativações da Unibrisa.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- DIA 01 CARD -->
+                <div class="glass-card p-6 md:p-8 reveal border-t-8 border-t-brisa-blue relative overflow-hidden group">
+                    <div class="absolute top-4 right-4 text-white/20 group-hover:text-brisa-blue/30 transition-colors duration-500">
+                        <i class="fa-solid fa-microchip text-6xl"></i>
+                    </div>
+                    <h3 class="font-heading text-3xl font-extrabold mb-1 drop-shadow-md">Programação<br>Positivação Unibrisa</h3>
+                    <p class="text-xl font-bold bg-white text-brisa-orange inline-block px-4 py-1 rounded-full mb-8 shadow-sm">Dia 01: 17/03/2026</p>
+
+                    <div class="space-y-6">
+                        <!-- Item 01 -->
+                        <div class="flex items-start gap-4 border-b border-white/20 pb-4">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-white flex items-center justify-center font-bold bg-transparent text-white">01</div>
+                            <div class="flex-grow">
+                                <h4 class="font-bold text-lg leading-tight mb-1">BrisaCast: Live com Pautas de Desenvolvimento para os Colaboradores.</h4>
+                                <p class="text-xs opacity-90 font-medium">Público Geral | Matriz: Presencial Auditório<br>Regionais: Universo Brisa</p>
+                            </div>
+                            <div class="flex-shrink-0 font-bold text-sm">09:00-17:00</div>
+                        </div>
+                        <!-- Item 02 -->
+                        <div class="flex items-start gap-4 border-b border-white/20 pb-4">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-white flex items-center justify-center font-bold bg-transparent text-white">02</div>
+                            <div class="flex-grow">
+                                <h4 class="font-bold text-lg leading-tight mb-1">Ativação Regional: Positivação da Unibrisa.</h4>
+                                <p class="text-xs opacity-90 font-medium">Público Fortaleza/CE | Presencial Auditório Prédio Administrativo</p>
+                            </div>
+                            <div class="flex-shrink-0 font-bold text-sm">09:00-12:00</div>
+                        </div>
+                        <!-- Item 03 -->
+                        <div class="flex items-start gap-4 border-b border-white/20 pb-4">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-white flex items-center justify-center font-bold bg-transparent text-white">03</div>
+                            <div class="flex-grow">
+                                <h4 class="font-bold text-lg leading-tight mb-1">Ativação Matriz: Positivação da Unibrisa.</h4>
+                                <p class="text-xs opacity-90 font-medium">Público Matriz | Área de Convivência</p>
+                            </div>
+                            <div class="flex-shrink-0 font-bold text-sm">13:30-15:00</div>
+                        </div>
+                        <!-- Item 04 -->
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full border-2 border-white flex items-center justify-center font-bold bg-transparent text-white">04</div>
+                            <div class="flex-grow">
+                                <h4 class="font-bold text-lg leading-tight mb-1">Instituições Parceiras: Estude Conosco!</h4>
+                                <p class="text-xs opacity-90 font-medium">Público Matriz | Apresentação de Cursos e ofertas especiais</p>
+                            </div>
+                            <div class="flex-shrink-0 font-bold text-sm">13:30-15:00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DIA 02 CARD -->
+                <div class="glass-card p-6 md:p-8 reveal border-t-8 border-t-brisa-blue relative overflow-hidden group">
+                    <div class="absolute top-4 right-4 text-white/20 group-hover:text-brisa-blue/30 transition-colors duration-500">
+                        <i class="fa-solid fa-microchip text-6xl"></i>
+                    </div>
+                    <h3 class="font-heading text-3xl font-extrabold mb-1 drop-shadow-md">Programação<br>Positivação Unibrisa</h3>
+                    <p class="text-xl font-bold bg-white text-brisa-orange inline-block px-4 py-1 rounded-full mb-8 shadow-sm">Dia 02: 19/03/2026</p>
+
+                    <div class="space-y-4">
+                        <!-- Item 01 -->
+                        <div class="flex items-start gap-4 border-b border-white/20 pb-3">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">01</div>
+                            <div class="flex-grow">
+                                <h4 class="font-bold text-base leading-tight mb-1">Ativação Regional: Positivação da Unibrisa.</h4>
+                                <p class="text-[11px] opacity-90 font-medium">Público Juazeiro do Norte/CE | Refeitório Prédio Administrativo</p>
+                            </div>
+                            <div class="flex-shrink-0 font-bold text-xs mt-1">08:00-12:00</div>
+                        </div>
+                        <!-- Item 02 -->
+                        <div class="flex items-start gap-4 border-b border-white/20 pb-3">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">02</div>
+                            <div class="flex-grow">
+                                <h4 class="font-bold text-base leading-tight mb-1">Ativação Regional: Positivação da Unibrisa.</h4>
+                                <p class="text-[11px] opacity-90 font-medium">Público Parnamirim/RN | Presencial Auditório Prédio Administrativo</p>
+                            </div>
+                            <div class="flex-shrink-0 font-bold text-xs mt-1">09:00-17:00</div>
+                        </div>
+                        <!-- Item 03 -->
+                        <div class="flex items-start gap-4 border-b border-white/20 pb-3">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">03</div>
+                            <div class="flex-grow">
+                                <h4 class="font-bold text-base leading-tight mb-1">Ativação Regional: Positivação da Unibrisa.</h4>
+                                <p class="text-[11px] opacity-90 font-medium">Público João Pessoa/PB | Presencial Loja</p>
+                            </div>
+                            <div class="flex-shrink-0 font-bold text-xs mt-1">09:00-12:00</div>
+                        </div>
+                        <!-- Item 04 -->
+                        <div class="flex items-start gap-4 border-b border-white/20 pb-3">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">04</div>
+                            <div class="flex-grow">
+                                <h4 class="font-bold text-base leading-tight mb-1">Ativação Regional: Positivação da Unibrisa.</h4>
+                                <p class="text-[11px] opacity-90 font-medium">Público Camaçari/BA | Presencial Loja</p>
+                            </div>
+                            <div class="flex-shrink-0 font-bold text-xs mt-1">09:00-12:00</div>
+                        </div>
+                        <!-- Item 05 -->
+                        <div class="flex items-start gap-4 border-b border-white/20 pb-3">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">05</div>
+                            <div class="flex-grow">
+                                <h4 class="font-bold text-base leading-tight mb-1">Ativação Regional: Positivação da Unibrisa.</h4>
+                                <p class="text-[11px] opacity-90 font-medium">Público Abreu e Lima/PE | Presencial Estoque</p>
+                            </div>
+                            <div class="flex-shrink-0 font-bold text-xs mt-1">09:00-12:00</div>
+                        </div>
+                        <!-- Item 06 -->
+                        <div class="flex items-start gap-4 border-b border-white/20 pb-3">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">06</div>
+                            <div class="flex-grow">
+                                <h4 class="font-bold text-base leading-tight mb-1">Ativação Regional: Positivação da Unibrisa.</h4>
+                                <p class="text-[11px] opacity-90 font-medium">Público Pau dos Ferros/RN | Presencial Estoque</p>
+                            </div>
+                            <div class="flex-shrink-0 font-bold text-xs mt-1">09:00-15:00</div>
+                        </div>
+                        <!-- Item 07 -->
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">07</div>
+                            <div class="flex-grow">
+                                <h4 class="font-bold text-base leading-tight mb-1">Ativação Regional: Positivação da Unibrisa.</h4>
+                                <p class="text-[11px] opacity-90 font-medium">Público Aracaju/SE | Presencial Estoque</p>
+                            </div>
+                            <div class="flex-shrink-0 font-bold text-xs mt-1">09:00-15:00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: DIA D REGIONAIS -->
+        <section id="diad" class="mb-24 pt-10">
+            <div class="text-center mb-12 reveal">
+                <h2 class="font-heading font-extrabold text-4xl mb-4"><i class="fa-solid fa-earth-americas mr-3"></i> Dia D nas Regionais</h2>
+                <p class="text-xl opacity-90">A energia da Unibrisa espalhada por todos os cantos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Data cards generated based on provided input -->
+                <div class="glass-card p-5 text-center reveal group hover:bg-white hover:text-brisa-orange transition-colors">
+                    <div class="text-2xl font-bold border-b border-current pb-2 mb-3">Sede</div>
+                    <div class="font-heading text-xl mb-2">17/03</div>
+                    <p class="text-xs opacity-80 group-hover:opacity-100">Equipe de RH</p>
+                </div>
+                
+                <div class="glass-card p-5 text-center reveal group hover:bg-white hover:text-brisa-orange transition-colors">
+                    <div class="text-2xl font-bold border-b border-current pb-2 mb-3">Fortaleza / CE</div>
+                    <div class="font-heading text-xl mb-2">17/03</div>
+                    <p class="text-xs opacity-80 group-hover:opacity-100">Equipe de RH</p>
+                </div>
+
+                <div class="glass-card p-5 text-center reveal group hover:bg-white hover:text-brisa-orange transition-colors">
+                    <div class="text-2xl font-bold border-b border-current pb-2 mb-3">Pau dos Ferros / RN</div>
+                    <div class="font-heading text-xl mb-2">19/03</div>
+                    <p class="text-xs opacity-80 group-hover:opacity-100">Equipe de RH</p>
+                </div>
+
+                <div class="glass-card p-5 text-center reveal group hover:bg-white hover:text-brisa-orange transition-colors">
+                    <div class="text-2xl font-bold border-b border-current pb-2 mb-3">Natal / RN</div>
+                    <div class="font-heading text-xl mb-2">19/03</div>
+                    <p class="text-xs opacity-80 group-hover:opacity-100">Equipe de RH</p>
+                </div>
+
+                <div class="glass-card p-5 text-center reveal group hover:bg-white hover:text-brisa-orange transition-colors">
+                    <div class="text-2xl font-bold border-b border-current pb-2 mb-3">Juazeiro do Norte / CE</div>
+                    <div class="font-heading text-xl mb-2">19/03</div>
+                    <p class="text-xs opacity-80 group-hover:opacity-100">Equipe de RH</p>
+                </div>
+
+                <div class="glass-card p-5 text-center reveal group hover:bg-white hover:text-brisa-orange transition-colors">
+                    <div class="text-2xl font-bold border-b border-current pb-2 mb-3">Camaçari / BA</div>
+                    <div class="font-heading text-xl mb-2">19/03</div>
+                    <p class="text-xs opacity-80 group-hover:opacity-100">Equipe de RH</p>
+                </div>
+
+                <div class="glass-card p-5 text-center reveal group hover:bg-white hover:text-brisa-orange transition-colors">
+                    <div class="text-2xl font-bold border-b border-current pb-2 mb-3">João Pessoa / PB</div>
+                    <div class="font-heading text-xl mb-2">19/03</div>
+                    <p class="text-xs opacity-80 group-hover:opacity-100">Equipe de RH</p>
+                </div>
+                
+                <div class="glass-card p-5 text-center reveal group hover:bg-white hover:text-brisa-orange transition-colors">
+                    <div class="text-2xl font-bold border-b border-current pb-2 mb-3">Abreu e Lima / PE</div>
+                    <div class="font-heading text-xl mb-2">19/03</div>
+                    <p class="text-xs opacity-80 group-hover:opacity-100">Equipe de RH</p>
+                </div>
+
+                    <div class="glass-card p-5 text-center reveal group hover:bg-white hover:text-brisa-orange transition-colors">
+                    <div class="text-2xl font-bold border-b border-current pb-2 mb-3">Aracaju / SE</div>
+                    <div class="font-heading text-xl mb-2">19/03</div>
+                    <p class="text-xs opacity-80 group-hover:opacity-100">Equipe de RH</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: CONFIRA O EVENTO (TIMELINE DETALHADA) -->
+        <section id="detalhes-evento" class="mb-16 pt-10">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-heading font-extrabold text-4xl md:text-5xl mb-4"><i class="fa-solid fa-podcast mr-3"></i> Programação BrisaCast</h2>
+                <p class="text-xl opacity-90">Mergulhe nos detalhes dos painéis, horários e conheça os convidados especiais do nosso podcast ao vivo.</p>
+            </div>
+
+            <div class="relative max-w-5xl mx-auto py-10">
+                <!-- Linha Central da Timeline -->
+                <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-white/30 transform md:-translate-x-1/2 rounded-full"></div>
+
+                <!-- 01. Abertura (Esquerda) -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
+                    <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(34,66,212,0.8)] group-hover:scale-150 transition-transform duration-300"></div>
+                    
+                    <div class="w-full md:w-[46%] glass-card p-5 md:p-6 border-l-4 md:border-l-0 md:border-t-4 md:border-r-4 border-brisa-blue ml-12 md:ml-0 relative text-left md:text-right">
+                        <div class="md:hidden absolute -left-10 top-6 w-5 h-5 rounded-full bg-brisa-blue border-4 border-white z-10"></div>
+                        
+                        <span class="bg-white text-brisa-orange text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">09:00 a 09:30</span>
+                        <h3 class="font-heading text-2xl font-bold mb-2">Abertura & Visão Estratégica</h3>
+                        <p class="text-sm opacity-90 mb-4">Abertura com o MVV | Linha do tempo da “Unibrisa” e a visão de ecossistema de aprendizagem.<br><i class="fa-solid fa-location-dot mt-2 text-brisa-blue"></i> Auditório [Sede] & Transmissão Regionais</p>
+                        
+                        <div class="mt-4 pt-4 border-t border-white/20 flex flex-col md:items-end">
+                            <p class="text-xs font-bold mb-3 uppercase text-yellow-300">Convidados & Facilitação</p>
+                            <div class="flex flex-wrap gap-2 md:justify-end">
+                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10"><img src="https://i.pravatar.cc/150?u=valcerlan" class="w-6 h-6 rounded-full"><span class="text-[11px] font-bold">Valcerlan Almeida</span></div>
+                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10"><img src="https://i.pravatar.cc/150?u=flavia" class="w-6 h-6 rounded-full"><span class="text-[11px] font-bold">Flavia Paulino</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20"><img src="https://i.pravatar.cc/150?u=daiane" class="w-6 h-6 rounded-full"><span class="text-[11px] font-semibold">Daiane</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20"><img src="https://i.pravatar.cc/150?u=simone" class="w-6 h-6 rounded-full"><span class="text-[11px] font-semibold">Simone</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20"><img src="https://i.pravatar.cc/150?u=leandro" class="w-6 h-6 rounded-full"><span class="text-[11px] font-semibold">Leandro Chalegra</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20"><img src="https://i.pravatar.cc/150?u=airton" class="w-6 h-6 rounded-full"><span class="text-[11px] font-semibold">Airton</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden md:block w-[46%]"></div>
+                </div>
+
+                <!-- 02. Painel 01 (Direita) -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
+                    <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(34,66,212,0.8)] group-hover:scale-150 transition-transform duration-300"></div>
+                    <div class="hidden md:block w-[46%]"></div>
+                    <div class="w-full md:w-[46%] glass-card p-5 md:p-6 border-l-4 md:border-t-4 border-brisa-blue ml-12 md:ml-0 relative">
+                        <div class="md:hidden absolute -left-10 top-6 w-5 h-5 rounded-full bg-brisa-blue border-4 border-white z-10"></div>
+                        <span class="bg-white text-brisa-orange text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">09:30 a 10:30</span>
+                        <h3 class="font-heading text-2xl font-bold mb-2">Painel 01: Cibersegurança no Grupo Brisanet</h3>
+                        
+                        <div class="mt-4 pt-4 border-t border-white/20 flex flex-col items-start">
+                            <p class="text-xs font-bold mb-3 uppercase text-yellow-300">Convidados & Facilitação</p>
+                            <div class="flex flex-wrap gap-2">
+                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10"><img src="https://i.pravatar.cc/150?u=valcerlan" class="w-6 h-6 rounded-full"><span class="text-[11px] font-bold">Valcerlan Almeida</span></div>
+                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10"><img src="https://i.pravatar.cc/150?u=flavia" class="w-6 h-6 rounded-full"><span class="text-[11px] font-bold">Flavia Paulino</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20"><img src="https://i.pravatar.cc/150?u=lucas" class="w-6 h-6 rounded-full"><span class="text-[11px] font-semibold">Lucas Kennedy</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20"><img src="https://i.pravatar.cc/150?u=isaias" class="w-6 h-6 rounded-full"><span class="text-[11px] font-semibold">Isaías</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 03. Painel 02 (Esquerda) -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
+                    <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(34,66,212,0.8)] group-hover:scale-150 transition-transform duration-300"></div>
+                    <div class="w-full md:w-[46%] glass-card p-5 md:p-6 border-l-4 md:border-l-0 md:border-t-4 md:border-r-4 border-brisa-blue ml-12 md:ml-0 relative text-left md:text-right">
+                        <div class="md:hidden absolute -left-10 top-6 w-5 h-5 rounded-full bg-brisa-blue border-4 border-white z-10"></div>
+                        <span class="bg-white text-brisa-orange text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">10:30 a 12:00</span>
+                        <h3 class="font-heading text-2xl font-bold mb-2">Painel 02: Compliance + Código de Ética de Bolso</h3>
+                        <div class="mt-4 pt-4 border-t border-white/20 flex flex-col md:items-end">
+                            <p class="text-xs font-bold mb-3 uppercase text-yellow-300">Convidados & Facilitação</p>
+                            <div class="flex flex-wrap gap-2 md:justify-end">
+                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10"><img src="https://i.pravatar.cc/150?u=valcerlan" class="w-6 h-6 rounded-full"><span class="text-[11px] font-bold">Valcerlan Almeida</span></div>
+                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10"><img src="https://i.pravatar.cc/150?u=flavia" class="w-6 h-6 rounded-full"><span class="text-[11px] font-bold">Flavia Paulino</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20"><img src="https://i.pravatar.cc/150?u=david" class="w-6 h-6 rounded-full"><span class="text-[11px] font-semibold">David Barreto</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20"><img src="https://i.pravatar.cc/150?u=juliana" class="w-6 h-6 rounded-full"><span class="text-[11px] font-semibold">Juliana Fernandes</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20"><img src="https://i.pravatar.cc/150?u=luciana" class="w-6 h-6 rounded-full"><span class="text-[11px] font-semibold">Luciana Paulo</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20"><img src="https://i.pravatar.cc/150?u=joaopaulo" class="w-6 h-6 rounded-full"><span class="text-[11px] font-semibold">João Paulo Araújo</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden md:block w-[46%]"></div>
+                </div>
+
+                <!-- 04. Almoço (Direita) - Estilo Gameficado -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
+                    <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-yellow-400 border-4 border-white z-10 shadow-[0_0_15px_rgba(250,204,21,0.8)] group-hover:scale-150 transition-transform duration-300"></div>
+                    <div class="hidden md:block w-[46%]"></div>
+                    <div class="w-full md:w-[46%] bg-white/10 backdrop-blur-md p-5 md:p-6 border-l-4 md:border-t-4 border-yellow-400 ml-12 md:ml-0 relative rounded-2xl">
+                        <div class="md:hidden absolute -left-10 top-6 w-5 h-5 rounded-full bg-yellow-400 border-4 border-white z-10"></div>
+                        <span class="bg-yellow-400 text-brisa-dark text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">12:00 a 13:30</span>
+                        <h3 class="font-heading text-2xl font-bold mb-2 text-yellow-300"><i class="fa-solid fa-utensils mr-2"></i> Almoço & Área Vivencial</h3>
+                        <p class="text-sm opacity-90">Participe das ações e dinâmicas na área vivencial como a Blitz de segurança e nossos Jogos interativos!</p>
+                    </div>
+                </div>
+
+                <!-- 05. Painel 03 (Esquerda) -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
+                    <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(34,66,212,0.8)] group-hover:scale-150 transition-transform duration-300"></div>
+                    <div class="w-full md:w-[46%] glass-card p-5 md:p-6 border-l-4 md:border-l-0 md:border-t-4 md:border-r-4 border-brisa-blue ml-12 md:ml-0 relative text-left md:text-right">
+                        <div class="md:hidden absolute -left-10 top-6 w-5 h-5 rounded-full bg-brisa-blue border-4 border-white z-10"></div>
+                        <span class="bg-white text-brisa-orange text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">13:30 a 14:30</span>
+                        <h3 class="font-heading text-2xl font-bold mb-2">Painel 03: Google Cloud <i class="fa-brands fa-google ml-2"></i></h3>
+                        <p class="text-sm opacity-90 mb-4">"Prompt de produtividade com Gemini para Workspace"</p>
+                        <div class="mt-4 pt-4 border-t border-white/20 flex flex-col md:items-end">
+                            <p class="text-xs font-bold mb-3 uppercase text-yellow-300">Convidados & Facilitação</p>
+                            <div class="flex flex-wrap gap-2 md:justify-end">
+                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10"><img src="https://i.pravatar.cc/150?u=valcerlan" class="w-6 h-6 rounded-full"><span class="text-[11px] font-bold">Valcerlan Almeida</span></div>
+                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10"><img src="https://i.pravatar.cc/150?u=flavia" class="w-6 h-6 rounded-full"><span class="text-[11px] font-bold">Flavia Paulino</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20"><img src="https://i.pravatar.cc/150?u=lucas2" class="w-6 h-6 rounded-full"><span class="text-[11px] font-semibold">Lucas Kennedy</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20"><img src="https://i.pravatar.cc/150?u=igor" class="w-6 h-6 rounded-full"><span class="text-[11px] font-semibold">Igor Carolino</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden md:block w-[46%]"></div>
+                </div>
+
+                <!-- 06. Café (Direita) - Estilo Gameficado -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
+                    <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-yellow-400 border-4 border-white z-10 shadow-[0_0_15px_rgba(250,204,21,0.8)] group-hover:scale-150 transition-transform duration-300"></div>
+                    <div class="hidden md:block w-[46%]"></div>
+                    <div class="w-full md:w-[46%] bg-white/10 backdrop-blur-md p-5 md:p-6 border-l-4 md:border-t-4 border-yellow-400 ml-12 md:ml-0 relative rounded-2xl">
+                        <div class="md:hidden absolute -left-10 top-6 w-5 h-5 rounded-full bg-yellow-400 border-4 border-white z-10"></div>
+                        <span class="bg-yellow-400 text-brisa-dark text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">14:30 a 15:00</span>
+                        <h3 class="font-heading text-2xl font-bold mb-2 text-yellow-300"><i class="fa-solid fa-mug-hot mr-2"></i> Pausa para o Café</h3>
+                        <p class="text-sm opacity-90">Ações e dinâmicas na área vivencial como Blitz de segurança + Jogos interativos continuam.</p>
+                    </div>
+                </div>
+
+                <!-- 07. Painel 04 (Esquerda) -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
+                    <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(34,66,212,0.8)] group-hover:scale-150 transition-transform duration-300"></div>
+                    <div class="w-full md:w-[46%] glass-card p-5 md:p-6 border-l-4 md:border-l-0 md:border-t-4 md:border-r-4 border-brisa-blue ml-12 md:ml-0 relative text-left md:text-right">
+                        <div class="md:hidden absolute -left-10 top-6 w-5 h-5 rounded-full bg-brisa-blue border-4 border-white z-10"></div>
+                        <span class="bg-white text-brisa-orange text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">15:00 a 16:30</span>
+                        <h3 class="font-heading text-2xl font-bold mb-2">Painel 04: Planejamento Financeiro 2026</h3>
+                        <div class="mt-4 pt-4 border-t border-white/20 flex flex-col md:items-end">
+                            <p class="text-xs font-bold mb-3 uppercase text-yellow-300">Convidados & Facilitação</p>
+                            <div class="flex flex-wrap gap-2 md:justify-end">
+                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10"><img src="https://i.pravatar.cc/150?u=valcerlan" class="w-6 h-6 rounded-full"><span class="text-[11px] font-bold">Valcerlan Almeida</span></div>
+                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10"><img src="https://i.pravatar.cc/150?u=flavia" class="w-6 h-6 rounded-full"><span class="text-[11px] font-bold">Flavia Paulino</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20"><div class="w-6 h-6 rounded-full border border-white/50 bg-white/20 flex items-center justify-center font-bold text-[8px]">UNI</div><span class="text-[11px] font-semibold">Palestrante Unicesumar</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20"><div class="w-6 h-6 rounded-full border border-white/50 bg-red-500/80 flex items-center justify-center font-bold text-[8px]">SAN</div><span class="text-[11px] font-semibold">Santander & Reps.</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20"><img src="https://i.pravatar.cc/150?u=romario" class="w-6 h-6 rounded-full"><span class="text-[11px] font-semibold">Romário Aquino</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden md:block w-[46%]"></div>
+                </div>
+
+                <!-- 08. Quizzes (Direita) -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
+                    <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(34,66,212,0.8)] group-hover:scale-150 transition-transform duration-300"></div>
+                    <div class="hidden md:block w-[46%]"></div>
+                    <div class="w-full md:w-[46%] glass-card p-5 md:p-6 border-l-4 md:border-t-4 border-brisa-blue ml-12 md:ml-0 relative">
+                        <div class="md:hidden absolute -left-10 top-6 w-5 h-5 rounded-full bg-brisa-blue border-4 border-white z-10"></div>
+                        <span class="bg-white text-brisa-orange text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">16:30 a 16:50</span>
+                        <h3 class="font-heading text-2xl font-bold mb-2"><i class="fa-solid fa-ranking-star mr-2 text-yellow-300"></i> Resultados dos Quizzes</h3>
+                        <p class="text-sm opacity-90">Anúncio oficial da realização e dos grandes resultados do dia.</p>
+                    </div>
+                </div>
+
+                <!-- 09. Encerramento (Esquerda) -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between reveal group">
+                    <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(34,66,212,0.8)] group-hover:scale-150 transition-transform duration-300"></div>
+                    <div class="w-full md:w-[46%] glass-card p-5 md:p-6 border-l-4 md:border-l-0 md:border-t-4 md:border-r-4 border-brisa-blue ml-12 md:ml-0 relative text-left md:text-right">
+                        <div class="md:hidden absolute -left-10 top-6 w-5 h-5 rounded-full bg-brisa-blue border-4 border-white z-10"></div>
+                        <span class="bg-white text-brisa-orange text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">16:50 a 17:00</span>
+                        <h3 class="font-heading text-2xl font-bold mb-2">Encerramento Oficial</h3>
+                        <div class="mt-4 pt-4 border-t border-white/20 flex flex-col md:items-end">
+                            <p class="text-xs font-bold mb-3 uppercase text-yellow-300">Convidados & Facilitação</p>
+                            <div class="flex flex-wrap gap-2 md:justify-end">
+                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10"><img src="https://i.pravatar.cc/150?u=valcerlan" class="w-6 h-6 rounded-full"><span class="text-[11px] font-bold">Valcerlan Almeida</span></div>
+                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10"><img src="https://i.pravatar.cc/150?u=flavia" class="w-6 h-6 rounded-full"><span class="text-[11px] font-bold">Flavia Paulino</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20"><img src="https://i.pravatar.cc/150?u=roberto" class="w-6 h-6 rounded-full"><span class="text-[11px] font-semibold">Roberto Nogueira</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20"><img src="https://i.pravatar.cc/150?u=jordao" class="w-6 h-6 rounded-full"><span class="text-[11px] font-semibold">Jordão Estevam</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20"><img src="https://i.pravatar.cc/150?u=joaopauloe" class="w-6 h-6 rounded-full"><span class="text-[11px] font-semibold">João P. Estevam</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden md:block w-[46%]"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION: UNIVERSO BRISA & MARATONA (NOVO) -->
+        <section id="universo-brisa" class="mb-24 pt-10">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-heading font-extrabold text-4xl md:text-5xl mb-4"><i class="fa-solid fa-rocket mr-3"></i> Universo Brisa & Maratona</h2>
+                <p class="text-xl opacity-90">Engaje, aprenda e seja reconhecido. Explore todas as frentes do nosso ecossistema!</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Card: Campanha Social & Sorteios -->
+                <div class="glass-card p-8 reveal border-t-8 border-t-brisa-blue relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute -right-6 -bottom-6 opacity-10 text-white transition-transform hover:scale-110 duration-500">
+                        <i class="fa-solid fa-hashtag text-9xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-3xl font-extrabold mb-4 drop-shadow-sm"><i class="fa-solid fa-camera-retro mr-2"></i> Sorteio</h3>
+                        <p class="text-lg mb-4 font-bold bg-white text-brisa-orange inline-block px-4 py-1 rounded-full shadow-sm">#ConectadosPeloAprendizado</p>
+                        <p class="text-sm mb-6 leading-relaxed font-medium">Aprender não tem um formato único. <strong>Mostre o seu!</strong> Publique uma foto ou vídeo com a nossa hashtag oficial. Dê visibilidade à sua jornada e valorize o desenvolvimento contínuo da nossa equipe.</p>
+                    </div>
+                    
+                    <div class="bg-black/20 p-5 rounded-xl border border-white/20 flex items-center gap-5 mt-auto relative z-10 backdrop-blur-sm">
+                        <i class="fa-solid fa-gift text-4xl text-yellow-300 animate-pulse"></i>
+                        <div>
+                            <p class="font-extrabold text-yellow-300 uppercase tracking-wide text-sm mb-1">Premiação Exclusiva</p>
+                            <p class="text-sm font-semibold">Sorteio de 03 Livros <em>"Mindset: A Nova Psicologia do Sucesso"</em> + Vouchers de cursos de MBE e Liderança!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card: Maratona do Conhecimento -->
+                <div class="glass-card p-8 reveal border-t-8 border-t-yellow-400 relative overflow-hidden">
+                    <div class="absolute -right-6 -top-6 opacity-10 text-white">
+                        <i class="fa-solid fa-flag-checkered text-9xl"></i>
+                    </div>
+                    <h3 class="font-heading text-3xl font-extrabold mb-4 drop-shadow-sm text-yellow-300"><i class="fa-solid fa-stopwatch mr-2 text-white"></i> Maratona do Conhecimento</h3>
+                    
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="bg-yellow-400 text-brisa-dark font-bold px-4 py-1 rounded-full text-sm shadow-sm"><i class="fa-solid fa-calendar mr-1"></i> 16 a 20/03/2026</span>
+                        <span class="border border-white/50 text-white font-bold px-4 py-1 rounded-full text-sm backdrop-blur-sm"><i class="fa-solid fa-laptop-file mr-1"></i> Plataforma Unibrisa</span>
+                    </div>
+
+                    <p class="text-sm mb-4 font-medium leading-relaxed">Prepare-se para 05 dias intensos de imersão. Acelere sua carreira acompanhando nosso roteiro estratégico e garanta a melhor pontuação nos Quizzes!</p>
+                    
+                    <ul class="space-y-4 mb-6 text-sm font-semibold">
+                        <li class="flex items-center group cursor-default"><i class="fa-solid fa-graduation-cap text-yellow-300 mr-3 text-xl group-hover:animate-bounce"></i> Lançamento dos Cursos Plus Brisa.</li>
+                        <li class="flex items-center group cursor-default"><i class="fa-solid fa-brain text-yellow-300 mr-3 text-xl group-hover:animate-pulse"></i> Dicas diárias de Aprendizagem e Produtividade.</li>
+                        <li class="flex items-center group cursor-default"><i class="fa-solid fa-chalkboard-user text-yellow-300 mr-3 text-xl group-hover:animate-wiggle"></i> Regras claras de Pontuação: Aprenda e suba no Ranking!</li>
+                    </ul>
+                </div>
+
+                <!-- Card: Hub Universo Brisa -->
+                <div class="glass-card p-8 reveal border-l-8 border-l-brisa-blue relative">
+                    <h3 class="font-heading text-2xl font-extrabold mb-4"><i class="fa-solid fa-layer-group mr-2"></i> No Universo Brisa</h3>
+                    <p class="text-sm mb-5 font-medium">Sua central de desenvolvimento contínuo está recheada de novidades para manter você sempre atualizado:</p>
+                    
+                    <div class="space-y-4 text-sm">
+                        <div class="bg-white/10 p-4 rounded-lg border border-white/10 flex items-start gap-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:-translate-y-1 cursor-pointer group">
+                            <i class="fa-solid fa-book-open-reader text-3xl text-brisa-blue mt-1 group-hover:animate-float"></i>
+                            <div>
+                                <strong class="block mb-1 text-base">Acervo Completo</strong>
+                                <p class="opacity-90">Acesso imediato às Formações, Cursos e Jornadas anteriores.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-lg border border-white/10 flex items-start gap-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:-translate-y-1 cursor-pointer group">
+                            <i class="fa-solid fa-temperature-arrow-up text-3xl text-brisa-blue mt-1 group-hover:animate-pulse-slow"></i>
+                            <div>
+                                <strong class="block mb-1 text-base">Termômetros Semanais</strong>
+                                <p class="opacity-90">Acompanhamento transparente do andamento dos Cursos de Cibersegurança e Compliance.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-lg border border-white/10 flex items-start gap-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:-translate-y-1 cursor-pointer group">
+                            <i class="fa-solid fa-play-circle text-3xl text-brisa-blue mt-1 group-hover:animate-spin-slow"></i>
+                            <div>
+                                <strong class="block mb-1 text-base">Inspiração em Vídeo</strong>
+                                <p class="opacity-90">Assista aos depoimentos reais das áreas Técnica e de Operações.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card: Reconhecimento & Dinâmicas -->
+                <div class="glass-card p-8 reveal border-l-8 border-l-yellow-400 relative">
+                    <h3 class="font-heading text-2xl font-extrabold mb-4"><i class="fa-solid fa-ranking-star mr-2 text-yellow-300"></i> Reconhecimento & Foco</h3>
+                    
+                    <div class="mb-6">
+                        <strong class="text-yellow-300 uppercase tracking-wider text-xs block mb-2">Reunião de Comunicação</strong>
+                        <p class="text-sm font-medium leading-relaxed bg-black/20 p-3 rounded border border-white/10"><strong></strong>Descubra ao vivo quem domina o Ranking Público: conheceremos o <strong>Top 5 Aprendentes</strong>, a <strong>Regional Destaque</strong> e as áreas com <strong>100% de conclusão do curso de cibersegurança</strong>!</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-white pl-4 py-1 hover:border-yellow-300 transition-colors duration-300 group">
+                            <strong class="block text-sm mb-1"><i class="fa-solid fa-bullseye mr-1 group-hover:animate-ping text-white group-hover:text-yellow-300"></i> Foco na Produtividade</strong>
+                            <p class="text-xs opacity-90 font-medium">Otimize seu tempo! Você tem autonomia para se inscrever e participar <strong>apenas dos painéis que realmente deseja</strong>.</p>
+                        </div>
+                        
+                        <!-- Imagem Unibrisa Adicionada -->
+                        <div class="w-full rounded-xl overflow-hidden shadow-lg border border-white/20 relative group/img mt-2">
+                            <img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Unibrisa.png" alt="Positivação Unibrisa" class="w-full h-auto object-cover transform group-hover/img:scale-105 transition-transform duration-700">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brisa-dark/80 backdrop-blur-md text-white/80 py-8 text-center border-t border-white/20">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center items-center gap-4 mb-4">
+                <i class="fa-solid fa-microchip text-2xl"></i>
+                <span class="font-heading font-bold text-xl">unibrisa + brisanet</span>
+            </div>
+            <p class="text-sm">Ecossistema de Aprendizagem 2026</p>
+            <p class="text-xs mt-2 opacity-50">Desenvolvido para a Programação Positivação</p>
+        </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <button id="backToTopBtn" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white shadow-lg transition-all duration-300 z-50 opacity-0 pointer-events-none translate-y-4 hover:bg-white hover:text-brisa-orange hover:scale-110 flex items-center justify-center focus:outline-none" aria-label="Voltar ao topo">
+        <i class="fa-solid fa-chevron-up text-xl"></i>
+    </button>
+
+    <!-- Scripts for Animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Intersection Observer for scroll animations
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Optional: Stop observing once revealed
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.15, // Trigger when 15% visible
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+
+            // Interactive Buttons feedback
+            const subscribeButtons = document.querySelectorAll('button');
+            subscribeButtons.forEach(btn => {
+                if(btn.innerText.includes('Inscrever')) {
+                    btn.addEventListener('click', function() {
+                        const originalText = this.innerHTML;
+                        this.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Processando...';
+                        this.classList.remove('hover:text-brisa-orange', 'hover:bg-white');
+                        this.classList.add('bg-green-500', 'border-green-500', 'text-white');
+                        
+                        setTimeout(() => {
+                            this.innerHTML = '<i class="fa-solid fa-check-double mr-2"></i> Inscrito!';
+                        }, 1000);
+                    });
+                }
+            });
+
+            // Lógica do botão Voltar ao Topo
+            const backToTopBtn = document.getElementById('backToTopBtn');
+
+            window.addEventListener('scroll', () => {
+                // Mostra o botão após rolar 300px para baixo
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+                    backToTopBtn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                } else {
+                    backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+                    backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
