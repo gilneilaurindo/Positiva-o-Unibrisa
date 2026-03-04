@@ -68,11 +68,6 @@
         /* Custom Styles for things Tailwind is too verbose for */
         body {
             background-color: #FF7E50;
-            background-image: url('https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Plano%20de%20fundo.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
             color: white;
             overflow-x: hidden;
         }
@@ -141,6 +136,9 @@
     </style>
 </head>
 <body class="antialiased font-sans relative">
+    <!-- Imagem de Fundo Corrigida para Todas as Dimensões Mobile (Fixa e Responsiva) -->
+    <div class="fixed top-0 left-0 w-full h-screen h-[100dvh] bg-cover bg-center bg-no-repeat z-[-2] pointer-events-none" style="background-image: url('https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Plano%20de%20fundo.png');"></div>
+
     <div class="pattern-overlay"></div>
 
     <!-- Floating Learning Icons (Background) -->
@@ -165,7 +163,7 @@
                 </div>
             </div>
 
-            <h1 class="font-heading text-4xl sm:text-5xl md:text-7xl tracking-tight mb-4 drop-shadow-lg leading-tight hover:animate-wiggle cursor-default">
+            <h1 class="font-heading text-4xl sm:text-5xl md:text-7xl tracking-tight mb-4 leading-tight hover:animate-wiggle cursor-default">
                 <span class="font-extrabold block">Programação</span>
                 <span class="font-normal block text-3xl sm:text-4xl md:text-6xl mt-2">Aniversário</span>
                 <span class="font-bold text-white border-b-4 border-white pb-2 inline-block mt-4">Unibrisa</span>
@@ -174,7 +172,7 @@
     </header>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4 py-10 md:py-16 max-w-6xl">
+    <main class="container mx-auto px-4 py-10 md:py-16 max-w-6xl relative z-10">
 
         <!-- SECTION: PROGRAMAÇÃO -->
         <section id="programacao" class="mb-24 pt-10">
@@ -189,7 +187,7 @@
                     <div class="absolute top-4 right-4 text-white/20 group-hover:text-brisa-blue/30 transition-colors duration-500">
                         <i class="fa-solid fa-microchip text-6xl"></i>
                     </div>
-                    <h3 class="font-heading text-3xl font-extrabold mb-1 drop-shadow-md">Programação<br>Positivação Unibrisa</h3>
+                    <h3 class="font-heading text-3xl font-extrabold mb-1">Programação<br>Positivação Unibrisa</h3>
                     <p class="text-xl font-bold bg-white text-brisa-orange inline-block px-4 py-1 rounded-full mb-8 shadow-sm">Dia 01: 17/03/2026</p>
 
                     <div class="space-y-6">
@@ -237,7 +235,7 @@
                     <div class="absolute top-4 right-4 text-white/20 group-hover:text-brisa-blue/30 transition-colors duration-500">
                         <i class="fa-solid fa-microchip text-6xl"></i>
                     </div>
-                    <h3 class="font-heading text-3xl font-extrabold mb-1 drop-shadow-md">Programação<br>Positivação Unibrisa</h3>
+                    <h3 class="font-heading text-3xl font-extrabold mb-1">Programação<br>Positivação Unibrisa</h3>
                     <p class="text-xl font-bold bg-white text-brisa-orange inline-block px-4 py-1 rounded-full mb-8 shadow-sm">Dia 02: 19/03/2026</p>
 
                     <div class="space-y-4">
@@ -571,7 +569,7 @@
                         <i class="fa-solid fa-hashtag text-9xl"></i>
                     </div>
                     <div>
-                        <h3 class="font-heading text-3xl font-extrabold mb-4 drop-shadow-sm"><i class="fa-solid fa-camera-retro mr-2"></i> Sorteio</h3>
+                        <h3 class="font-heading text-3xl font-extrabold mb-4"><i class="fa-solid fa-camera-retro mr-2"></i> Sorteio</h3>
                         <p class="text-lg mb-4 font-bold bg-white text-brisa-orange inline-block px-4 py-1 rounded-full shadow-sm">#ConectadosPeloAprendizado</p>
                         <p class="text-sm mb-6 leading-relaxed font-medium">Aprender não tem um formato único. <strong>Mostre o seu!</strong> Publique uma foto ou vídeo com a nossa hashtag oficial. Dê visibilidade à sua jornada e valorize o desenvolvimento contínuo da nossa equipe.</p>
                     </div>
@@ -590,7 +588,7 @@
                     <div class="absolute -right-6 -top-6 opacity-10 text-white">
                         <i class="fa-solid fa-flag-checkered text-9xl"></i>
                     </div>
-                    <h3 class="font-heading text-3xl font-extrabold mb-4 drop-shadow-sm text-brisa-blue"><i class="fa-solid fa-stopwatch mr-2 text-white"></i> Maratona do Conhecimento</h3>
+                    <h3 class="font-heading text-3xl font-extrabold mb-4 text-brisa-blue"><i class="fa-solid fa-stopwatch mr-2 text-white"></i> Maratona do Conhecimento</h3>
                     
                     <div class="flex items-center gap-3 mb-6">
                         <span class="bg-brisa-blue text-white font-bold px-4 py-1 rounded-full text-sm shadow-sm"><i class="fa-solid fa-calendar mr-1"></i> 16 a 20/03/2026</span>
@@ -663,7 +661,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-brisa-dark/80 backdrop-blur-md text-white/80 py-8 text-center border-t border-white/20">
+    <footer class="bg-brisa-dark/80 backdrop-blur-md text-white/80 py-8 text-center border-t border-white/20 relative z-10">
         <div class="container mx-auto px-4">
             <div class="flex justify-center items-center gap-4 mb-4">
                 <i class="fa-solid fa-microchip text-2xl"></i>
