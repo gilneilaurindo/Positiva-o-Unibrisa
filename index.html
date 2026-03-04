@@ -135,6 +135,16 @@
     </style>
 </head>
 <body class="antialiased font-sans relative">
+    <!-- Tela de Carregamento (Splash Screen) -->
+    <div id="splash-screen" class="fixed inset-0 z-[9999] bg-[#FF7E50] flex flex-col items-center justify-center transition-opacity duration-700 opacity-100">
+        <div class="relative w-32 h-32 md:w-40 md:h-40">
+            <img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Icone.png" alt="Logo Unibrisa" class="w-full h-full object-contain brightness-0 invert animate-bounce">
+            <!-- Efeito de anel pulsante ao redor do logo -->
+            <div class="absolute inset-0 rounded-full border-4 border-white opacity-0 animate-[ping_1.5s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+        </div>
+        <p class="mt-6 text-white font-heading font-bold text-xl animate-pulse tracking-[0.2em]">CARREGANDO...</p>
+    </div>
+
     <!-- Imagem de Fundo -->
     <div class="fixed top-0 left-0 w-full h-screen h-[100dvh] bg-cover bg-center bg-no-repeat z-[-2] pointer-events-none" style="background-image: url('https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Plano%20de%20fundo.png');"></div>
 
@@ -709,6 +719,19 @@
                     top: 0,
                     behavior: 'smooth'
                 });
+            });
+
+            // Lógica da Tela de Carregamento (Splash Screen)
+            window.addEventListener('load', () => {
+                const splashScreen = document.getElementById('splash-screen');
+                if (splashScreen) {
+                    setTimeout(() => {
+                        splashScreen.style.opacity = '0';
+                        setTimeout(() => {
+                            splashScreen.remove();
+                        }, 700); // Tempo igual ao duration-700
+                    }, 1500); // Exibe a tela por pelo menos 1.5s para a animação aparecer
+                }
             });
         });
     </script>
