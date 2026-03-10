@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Cor da barra de navegação/botões no telemóvel -->
-    <meta name="theme-color" content="#FF7E50">
+    <!-- Cor da barra de navegação/botões no celular -->
+    <meta name="theme-color" content="#FF7E05">
     
     <!-- Meta tags Padrão (Ajudam o WhatsApp a encontrar o texto) -->
     <meta name="title" content="Descubra a Trilha de Aprendizado - Positivação Unibrisa 2026">
@@ -45,7 +45,7 @@
                 extend: {
                     colors: {
                         brisa: {
-                            orange: '#FF7E50',
+                            orange: '#FF7E05',
                             blue: '#2242D4',
                             dark: '#2242D4'
                         }
@@ -95,7 +95,7 @@
     <style>
         /* Estilos customizados para elementos mais complexos */
         body {
-            background-color: #FF7E50;
+            background-color: #FF7E05;
             color: white;
             overflow-x: hidden;
         }
@@ -144,14 +144,14 @@
     </style>
 </head>
 <body class="antialiased font-sans relative">
-    <!-- Ecrã de Carregamento (Splash Screen) -->
-    <div id="splash-screen" class="fixed inset-0 z-[9999] bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center transition-opacity duration-700 opacity-100" style="background-image: url('https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Plano%20de%20fundo.png'); background-color: #FF7E50;">
+    <!-- Tela de Carregamento (Splash Screen) -->
+    <div id="splash-screen" class="fixed inset-0 z-[9999] bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center transition-opacity duration-700 opacity-100" style="background-image: url('https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Plano%20de%20fundo.png'); background-color: #FF7E05;">
         <div class="relative w-32 h-32 md:w-40 md:h-40">
             <img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Icone.png" alt="Logo Unibrisa" class="w-full h-full object-contain brightness-0 invert animate-bounce">
-            <!-- Efeito de anel pulsante ao redor do logótipo -->
+            <!-- Efeito de anel pulsante ao redor da logo -->
             <div class="absolute inset-0 rounded-full border-4 border-white opacity-0 animate-[ping_1.5s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
         </div>
-        <p class="mt-6 text-white font-heading font-bold text-xl animate-pulse tracking-[0.2em]">A CARREGAR...</p>
+        <p class="mt-6 text-white font-heading font-bold text-xl animate-pulse tracking-[0.2em]">CARREGANDO...</p>
     </div>
 
     <!-- Imagem de Fundo -->
@@ -174,7 +174,7 @@
         <div class="reveal active w-full max-w-4xl mx-auto flex flex-col items-center">
             
             <!-- Ícone (Representando o Circuito Unibrisa) -->
-            <div class="w-40 h-40 md:w-56 h-56 mb-6 relative hover:scale-110 transition-transform duration-500">
+            <div class="w-40 h-40 md:w-56 md:h-56 mb-6 relative hover:scale-110 transition-transform duration-500">
                 <img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Icone.png" alt="Ícone Unibrisa" class="w-full h-full object-contain drop-shadow-lg brightness-0 invert">
             </div>
 
@@ -219,21 +219,13 @@
                         <div class="flex items-start gap-4 border-b border-white/20 pb-4">
                             <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">02</div>
                             <div class="flex-grow">
-                                <h4 class="font-bold text-base leading-tight mb-1 text-white">Fortaleza/CE</h4>
-                                <p class="text-[11px] opacity-90 font-medium text-white"><strong>Prédio Administrativo:</strong> Av. Washington Soares, SN, Qd 5 e 6, Bairro Guararapes</p>
-                            </div>
-                        </div>
-                        <!-- Item 03 -->
-                        <div class="flex items-start gap-4 border-b border-white/20 pb-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">03</div>
-                            <div class="flex-grow">
                                 <h4 class="font-bold text-base leading-tight mb-1 text-white">Matriz Pereiro/CE</h4>
                                 <p class="text-[11px] opacity-90 font-medium text-white">Rodovia CE-138, Trecho Pereiro - CE Divisa com RN - Km 14 Estrada de Acesso Brisa 1km - Portão A Prédio 2 - Entrada 3 - Térreo</p>
                             </div>
                         </div>
-                        <!-- Item 04 -->
+                        <!-- Item 03 -->
                         <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">04</div>
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">03</div>
                             <div class="flex-grow">
                                 <h4 class="font-bold text-base leading-tight mb-1 text-white">Parceiras: Estude Conosco!</h4>
                                 <p class="text-xs opacity-90 font-medium text-white">Matriz | Apresentação de Cursos e ofertas</p>
@@ -293,11 +285,19 @@
                             </div>
                         </div>
                         <!-- Item 06 -->
-                        <div class="flex items-start gap-4">
+                        <div class="flex items-start gap-4 border-b border-white/20 pb-3">
                             <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">06</div>
                             <div class="flex-grow">
                                 <h4 class="font-bold text-base leading-tight mb-1 text-white">Maceió/AL</h4>
                                 <p class="text-[11px] opacity-90 font-medium text-white"><strong>Loja:</strong> Rua Marieta Lages, Nº 49, Bairro Farol</p>
+                            </div>
+                        </div>
+                        <!-- Item 07 -->
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">07</div>
+                            <div class="flex-grow">
+                                <h4 class="font-bold text-base leading-tight mb-1 text-white">Fortaleza/CE</h4>
+                                <p class="text-[11px] opacity-90 font-medium text-white"><strong>Prédio Administrativo:</strong> Av. Washington Soares, SN, Qd 5 e 6, Bairro Guararapes</p>
                             </div>
                         </div>
                     </div>
@@ -321,11 +321,19 @@
                             </div>
                         </div>
                         <!-- Item 02 -->
-                        <div class="flex items-start gap-4">
+                        <div class="flex items-start gap-4 border-b border-white/20 pb-3">
                             <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">02</div>
                             <div class="flex-grow">
                                 <h4 class="font-bold text-base leading-tight mb-1 text-white">Pau dos Ferros/RN</h4>
                                 <p class="text-[11px] opacity-90 font-medium text-white"><strong>Prédio Call Center:</strong> R. Zé Lampião, Pau dos Ferros - RN</p>
+                            </div>
+                        </div>
+                        <!-- Item 03 -->
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">03</div>
+                            <div class="flex-grow">
+                                <h4 class="font-bold text-base leading-tight mb-1 text-white">Paulo Afonso/BA</h4>
+                                <p class="text-[11px] opacity-90 font-medium text-white"><strong>Loja:</strong> Avenida Landulfo Alves, 364, Centro</p>
                             </div>
                         </div>
                     </div>
@@ -344,7 +352,7 @@
                 <!-- Cartões de Dados -->
                 <div class="glass-card p-5 text-center reveal group hover:bg-white/20 hover:-translate-y-2 hover:text-white border border-transparent hover:border-white/50 transition-all duration-300">
                     <div class="text-2xl font-bold border-b border-white/30 pb-2 mb-3 text-white">Fortaleza / CE</div>
-                    <div class="font-heading text-xl mb-2 text-white">17/03</div>
+                    <div class="font-heading text-xl mb-2 text-white">18/03</div>
                     <p class="text-xs opacity-80 group-hover:opacity-100 text-white transition-opacity"><strong>Prédio Administrativo:</strong> Av. Washington Soares, SN, Qd 5 e 6, Bairro Guararapes</p>
                 </div>
 
@@ -394,6 +402,12 @@
                     <div class="text-2xl font-bold border-b border-white/30 pb-2 mb-3 text-white">Pau dos Ferros / RN</div>
                     <div class="font-heading text-xl mb-2 text-white">19/03</div>
                     <p class="text-xs opacity-80 group-hover:opacity-100 text-white transition-opacity"><strong>Prédio Call Center:</strong> R. Zé Lampião, Pau dos Ferros - RN</p>
+                </div>
+
+                <div class="glass-card p-5 text-center reveal group hover:bg-white/20 hover:-translate-y-2 hover:text-white border border-transparent hover:border-white/50 transition-all duration-300">
+                    <div class="text-2xl font-bold border-b border-white/30 pb-2 mb-3 text-white">Paulo Afonso / BA</div>
+                    <div class="font-heading text-xl mb-2 text-white">19/03</div>
+                    <p class="text-xs opacity-80 group-hover:opacity-100 text-white transition-opacity"><strong>Loja:</strong> Avenida Landulfo Alves, 364, Centro</p>
                 </div>
             </div>
         </section>
@@ -560,7 +574,7 @@
                     <div>
                         <h3 class="font-heading text-3xl font-extrabold mb-4 text-white"><i class="fa-solid fa-camera-retro mr-2"></i> Sorteio</h3>
                         <p class="text-lg mb-4 font-bold bg-white/20 border border-white/50 text-white inline-block px-4 py-1 rounded-full shadow-sm">#ConectadosPeloAprendizado</p>
-                        <p class="text-sm mb-6 leading-relaxed font-medium text-white">Aprender não tem um formato único. <strong>Mostre o seu!</strong> Publique uma foto ou vídeo com a nossa hashtag oficial. Dê visibilidade à sua jornada e valorize o desenvolvimento contínuo da nossa equipa.</p>
+                        <p class="text-sm mb-6 leading-relaxed font-medium text-white">Aprender não tem um formato único. <strong>Mostre o seu!</strong> Publique uma foto ou vídeo com a nossa hashtag oficial. Dê visibilidade à sua jornada e valorize o desenvolvimento contínuo da nossa equipe.</p>
                     </div>
                     
                     <div class="bg-black/20 p-5 rounded-xl border border-white/20 flex items-center gap-5 mt-auto relative z-10 backdrop-blur-sm">
@@ -609,7 +623,7 @@
                         <div class="bg-white/10 p-4 rounded-lg border border-white/10 flex items-start gap-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:-translate-y-1 cursor-pointer group">
                             <i class="fa-solid fa-temperature-arrow-up text-3xl text-white mt-1 group-hover:animate-pulse-slow"></i>
                             <div>
-                                <strong class="block mb-1 text-base">Termómetros Semanais</strong>
+                                <strong class="block mb-1 text-base">Termômetros Semanais</strong>
                                 <p class="opacity-90">Acompanhamento transparente do andamento dos Cursos de Cibersegurança e Compliance.</p>
                             </div>
                         </div>
@@ -647,10 +661,10 @@
     <!-- Rodapé -->
     <footer class="bg-brisa-blue text-white/80 py-8 text-center border-t border-white/20 relative z-10">
         <div class="container mx-auto px-4">
-            <!-- SECÇÃO DE LOGÓTIPOS ATUALIZADA AQUI -->
+            <!-- SECÇÃO DE LOGOS ATUALIZADA AQUI -->
             <div class="flex justify-center items-center gap-6 mb-4">
-                <img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/logo%20Unibrisa.png" alt="Logótipo Unibrisa" class="h-5 md:h-6 w-auto object-contain brightness-0 invert">
-                <img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/logo%20brisanet.png" alt="Logótipo Brisanet" class="h-5 md:h-6 w-auto object-contain brightness-0 invert">
+                <img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/logo%20Unibrisa.png" alt="Logo Unibrisa" class="h-5 md:h-6 w-auto object-contain brightness-0 invert">
+                <img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/logo%20brisanet.png" alt="Logo Brisanet" class="h-5 md:h-6 w-auto object-contain brightness-0 invert">
             </div>
             <p class="text-sm text-white">Ecossistema de Aprendizagem 2026</p>
             <p class="text-xs mt-2 opacity-50 text-white">Desenvolvido para a Programação Positivação</p>
@@ -658,7 +672,7 @@
     </footer>
 
     <!-- Botão Voltar ao Topo -->
-    <button id="backToTopBtn" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white transition-all duration-300 z-50 opacity-0 pointer-events-none translate-y-4 hover:bg-white/30 hover:text-white hover:scale-110 flex items-center justify-center focus:outline-none" aria-label="Voltar ao topo">
+    <button id="backToTopBtn" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-brisa-blue backdrop-blur-sm border-2 border-white text-white transition-all duration-300 z-50 opacity-0 pointer-events-none translate-y-4 hover:bg-brisa-dark hover:scale-110 flex items-center justify-center focus:outline-none shadow-lg" aria-label="Voltar ao topo">
         <i class="fa-solid fa-chevron-up text-xl"></i>
     </button>
 
