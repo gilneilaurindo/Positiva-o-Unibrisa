@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Cor da barra de navegação/botões no celular -->
     <meta name="theme-color" content="#FF7E05">
     
+    <!-- Meta tags Padrão -->
     <meta name="title" content="Positivação Unibrisa 2026 | Programação Oficial">
     <meta name="description" content="Participe da Maratona do Conhecimento, BrisaCast ao vivo e painéis exclusivos. Transforme sua carreira com a Unibrisa!">
 
+    <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://seusite.com.br"> <meta property="og:title" content="🚀 Positivação Unibrisa 2026: Conectados pelo Aprendizado">
+    <meta property="og:url" content="https://seusite.com.br"> <!-- Idealmente, coloque o link final do seu site aqui -->
+    <meta property="og:title" content="🚀 Positivação Unibrisa 2026: Conectados pelo Aprendizado">
     <meta property="og:description" content="Confira a agenda completa do aniversário Unibrisa. Painéis sobre IA, Cibersegurança e muito mais!">
     <meta property="og:image" content="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Captura%20de%20tela%202026-03-04%20181340.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     
+    <!-- Meta tags para Twitter / X -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Positivação Unibrisa 2026">
     <meta name="twitter:description" content="Acesse a trilha de aprendizado e participe dos sorteios exclusivos!">
@@ -23,10 +28,14 @@
 
     <title>Trilha de Aprendizado - Positivação Unibrisa</title>
     
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Icone.png">
 
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     
     <script>
@@ -134,18 +143,22 @@
     </style>
 </head>
 <body class="antialiased font-sans relative">
+    <!-- Ecrã de Carregamento (Splash Screen) -->
     <div id="splash-screen" class="fixed inset-0 z-[9999] bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center transition-opacity duration-700 opacity-100" style="background-image: url('https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Plano%20de%20fundo.png'); background-color: #FF7E05;">
         <div class="relative w-32 h-32 md:w-40 md:h-40">
             <img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Icone.png" alt="Logo Unibrisa" class="w-full h-full object-contain brightness-0 invert animate-bounce">
+            <!-- Efeito de anel pulsante ao redor da logo -->
             <div class="absolute inset-0 rounded-full border-4 border-white opacity-0 animate-[ping_1.5s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
         </div>
         <p class="mt-6 text-white font-heading font-bold text-xl animate-pulse tracking-[0.2em]">CARREGANDO...</p>
     </div>
 
+    <!-- Imagem de Fundo -->
     <div class="fixed top-0 left-0 w-full h-screen h-[100dvh] bg-cover bg-center bg-no-repeat z-[-2] pointer-events-none" style="background-image: url('https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Plano%20de%20fundo.png');"></div>
 
     <div class="pattern-overlay"></div>
 
+    <!-- Ícones Flutuantes (Fundo) -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
         <i class="fa-solid fa-graduation-cap absolute top-[15%] left-[10%] text-6xl text-white/10 animate-float"></i>
         <i class="fa-solid fa-book-open-reader absolute top-[25%] right-[15%] text-7xl text-white/10 animate-float-delayed"></i>
@@ -155,9 +168,11 @@
         <i class="fa-solid fa-chalkboard-user absolute top-[60%] right-[5%] text-6xl text-white/10 animate-float"></i>
     </div>
 
+    <!-- Cabeçalho / Secção Herói -->
     <header class="min-h-screen flex flex-col justify-center items-center text-center p-6 relative z-10">
         <div class="reveal active w-full max-w-4xl mx-auto flex flex-col items-center">
             
+            <!-- Ícone (Representando o Circuito Unibrisa) -->
             <div class="w-40 h-40 md:w-56 md:h-56 mb-6 relative hover:scale-110 transition-transform duration-500">
                 <img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Icone.png" alt="Ícone Unibrisa" class="w-full h-full object-contain drop-shadow-lg brightness-0 invert">
             </div>
@@ -170,8 +185,10 @@
         </div>
     </header>
 
+    <!-- Conteúdo Principal -->
     <main class="container mx-auto px-4 py-10 md:py-16 max-w-6xl relative z-10">
 
+        <!-- SECÇÃO: PROGRAMAÇÃO -->
         <section id="programacao" class="mb-24 pt-10">
             <div class="text-center mb-16 reveal">
                 <h2 class="font-heading font-extrabold text-4xl md:text-5xl mb-4 text-white"><i class="fa-solid fa-calendar-days mr-3"></i> Programação Oficial</h2>
@@ -179,6 +196,7 @@
             </div>
 
             <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+                <!-- CARTÃO DIA 01 -->
                 <article class="glass-card p-6 reveal border-t-8 border-t-brisa-blue relative overflow-hidden group">
                     <div class="absolute top-4 right-4 text-white/20 group-hover:text-white transition-colors duration-500">
                         <i class="fa-solid fa-microchip text-4xl"></i>
@@ -187,6 +205,7 @@
                     <p class="text-lg font-bold bg-white/20 border border-white/50 text-white inline-block px-4 py-1 rounded-full mb-8 shadow-sm">Dia 01: 17/03</p>
 
                     <div class="space-y-6">
+                        <!-- Item 01 -->
                         <div class="flex items-start gap-4 border-b border-white/20 pb-4">
                             <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">01</div>
                             <div class="flex-grow">
@@ -195,6 +214,7 @@
                             </div>
                             <div class="flex-shrink-0 font-bold text-xs mt-1 text-white">09:00-17:00</div>
                         </div>
+                        <!-- Item 02 -->
                         <div class="flex items-start gap-4 border-b border-white/20 pb-4">
                             <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">02</div>
                             <div class="flex-grow">
@@ -203,6 +223,7 @@
                             </div>
                             <div class="flex-shrink-0 font-bold text-[10px] text-right mt-1 text-white leading-tight">10h30 às 15h00</div>
                         </div>
+                        <!-- Item 03 -->
                         <div class="flex items-start gap-4">
                             <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">03</div>
                             <div class="flex-grow">
@@ -214,6 +235,7 @@
                     </div>
                 </article>
 
+                <!-- CARTÃO DIA 02 -->
                 <article class="glass-card p-6 reveal border-t-8 border-t-brisa-blue relative overflow-hidden group">
                     <div class="absolute top-4 right-4 text-white/20 group-hover:text-white transition-colors duration-500">
                         <i class="fa-solid fa-microchip text-4xl"></i>
@@ -222,14 +244,16 @@
                     <p class="text-lg font-bold bg-white/20 border border-white/50 text-white inline-block px-4 py-1 rounded-full mb-8 shadow-sm">Dia 02: 18/03</p>
 
                     <div class="space-y-4">
+                        <!-- Item 01 -->
                         <div class="flex items-start gap-4 border-b border-white/20 pb-3">
                             <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">01</div>
                             <div class="flex-grow">
-                                <h4 class="font-bold text-base leading-tight mb-1 text-white">Natal/RN</h4>
-                                <p class="text-[11px] opacity-90 font-medium text-white"><strong>Loja:</strong> Av. Prudente de Morais, Nº 4204, Bairro Lagoa Nova</p>
+                                <h4 class="font-bold text-base leading-tight mb-1 text-white">Parnamirim/RN</h4>
+                                <p class="text-[11px] opacity-90 font-medium text-white"><strong>Loja:</strong> Av. Brigadeiro Everaldo Breves nº 152, Loja 21, Bairro Centro</p>
                             </div>
                             <div class="flex-shrink-0 font-bold text-[10px] text-right mt-1 text-white leading-tight">08h30 às 09h30<br>10h00 às 11h00</div>
                         </div>
+                        <!-- Item 02 -->
                         <div class="flex items-start gap-4 border-b border-white/20 pb-3">
                             <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">02</div>
                             <div class="flex-grow">
@@ -238,6 +262,7 @@
                             </div>
                             <div class="flex-shrink-0 font-bold text-[10px] text-right mt-1 text-white leading-tight">08h30 às 09h30<br>10h00 às 11h00</div>
                         </div>
+                        <!-- Item 03 -->
                         <div class="flex items-start gap-4 border-b border-white/20 pb-3">
                             <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">03</div>
                             <div class="flex-grow">
@@ -246,6 +271,7 @@
                             </div>
                             <div class="flex-shrink-0 font-bold text-[10px] text-right mt-1 text-white leading-tight">08h30 às 09h30<br>10h00 às 11h00</div>
                         </div>
+                        <!-- Item 04 -->
                         <div class="flex items-start gap-4">
                             <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">04</div>
                             <div class="flex-grow">
@@ -257,6 +283,7 @@
                     </div>
                 </article>
 
+                <!-- CARTÃO DIA 03 -->
                 <article class="glass-card p-6 reveal border-t-8 border-t-brisa-blue relative overflow-hidden group">
                     <div class="absolute top-4 right-4 text-white/20 group-hover:text-white transition-colors duration-500">
                         <i class="fa-solid fa-microchip text-4xl"></i>
@@ -265,6 +292,7 @@
                     <p class="text-lg font-bold bg-white/20 border border-white/50 text-white inline-block px-4 py-1 rounded-full mb-8 shadow-sm">Dia 03: 19/03</p>
 
                     <div class="space-y-4">
+                        <!-- Item 01 -->
                         <div class="flex items-start gap-4 border-b border-white/20 pb-3">
                             <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">01</div>
                             <div class="flex-grow">
@@ -273,6 +301,7 @@
                             </div>
                             <div class="flex-shrink-0 font-bold text-[10px] text-right mt-1 text-white leading-tight">08h30 às 09h30<br>10h00 às 11h00</div>
                         </div>
+                        <!-- Item 02 -->
                         <div class="flex items-start gap-4 border-b border-white/20 pb-3">
                             <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">02</div>
                             <div class="flex-grow">
@@ -281,6 +310,7 @@
                             </div>
                             <div class="flex-shrink-0 font-bold text-[10px] text-right mt-1 text-white leading-tight">08h30 às 09h30<br>10h00 às 11h00</div>
                         </div>
+                        <!-- Item 03 -->
                         <div class="flex items-start gap-4 border-b border-white/20 pb-3">
                             <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">03</div>
                             <div class="flex-grow">
@@ -289,6 +319,7 @@
                             </div>
                             <div class="flex-shrink-0 font-bold text-[10px] text-right mt-1 text-white leading-tight">08h30 às 09h30<br>10h00 às 11h00</div>
                         </div>
+                        <!-- Item 04 -->
                         <div class="flex items-start gap-4">
                             <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">04</div>
                             <div class="flex-grow">
@@ -300,6 +331,7 @@
                     </div>
                 </article>
 
+                <!-- CARTÃO DIA 04 -->
                 <article class="glass-card p-6 reveal border-t-8 border-t-brisa-blue relative overflow-hidden group">
                     <div class="absolute top-4 right-4 text-white/20 group-hover:text-white transition-colors duration-500">
                         <i class="fa-solid fa-microchip text-4xl"></i>
@@ -308,6 +340,7 @@
                     <p class="text-lg font-bold bg-white/20 border border-white/50 text-white inline-block px-4 py-1 rounded-full mb-8 shadow-sm">Dia 04: 21/03</p>
 
                     <div class="space-y-4">
+                        <!-- Item 01 -->
                         <div class="flex items-start gap-4 border-b border-white/20 pb-3">
                             <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">01</div>
                             <div class="flex-grow">
@@ -316,6 +349,7 @@
                             </div>
                             <div class="flex-shrink-0 font-bold text-[10px] text-right mt-1 text-white leading-tight">08h30 às 09h30<br>10h00 às 11h00</div>
                         </div>
+                        <!-- Item 02 -->
                         <div class="flex items-start gap-4">
                             <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">02</div>
                             <div class="flex-grow">
@@ -329,6 +363,7 @@
             </div>
         </section>
 
+        <!-- SECÇÃO: DIA D REGIONAIS -->
         <section id="diad" class="mb-24 pt-10">
             <div class="text-center mb-12 reveal">
                 <h2 class="font-heading font-extrabold text-4xl mb-4 text-white"><i class="fa-solid fa-earth-americas mr-3"></i> Dia D nas Regionais</h2>
@@ -336,6 +371,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Cartões de Dados -->
                 <div class="glass-card p-5 text-center reveal group hover:bg-white/20 hover:-translate-y-2 hover:text-white border border-transparent hover:border-white/50 transition-all duration-300">
                     <div class="text-2xl font-bold border-b border-white/30 pb-2 mb-3 text-white">Fortaleza / CE</div>
                     <div class="font-heading text-xl mb-2 text-white">18/03</div>
@@ -343,9 +379,9 @@
                 </div>
 
                 <div class="glass-card p-5 text-center reveal group hover:bg-white/20 hover:-translate-y-2 hover:text-white border border-transparent hover:border-white/50 transition-all duration-300">
-                    <div class="text-2xl font-bold border-b border-white/30 pb-2 mb-3 text-white">Natal / RN</div>
+                    <div class="text-2xl font-bold border-b border-white/30 pb-2 mb-3 text-white">Parnamirim / RN</div>
                     <div class="font-heading text-xl mb-2 text-white">18/03</div>
-                    <p class="text-xs opacity-80 group-hover:opacity-100 text-white transition-opacity"><strong>Loja:</strong> Av. Prudente de Morais, Nº 4204, Bairro Lagoa Nova</p>
+                    <p class="text-xs opacity-80 group-hover:opacity-100 text-white transition-opacity"><strong>Loja:</strong> Av. Brigadeiro Everaldo Breves nº 152, Loja 21, Bairro Centro</p>
                 </div>
 
                 <div class="glass-card p-5 text-center reveal group hover:bg-white/20 hover:-translate-y-2 hover:text-white border border-transparent hover:border-white/50 transition-all duration-300">
@@ -390,6 +426,7 @@
                     <p class="text-xs opacity-80 group-hover:opacity-100 text-white transition-opacity"><strong>Loja:</strong> Avenida Landulfo Alves, 364, Centro</p>
                 </div>
                 
+                <!-- NOVO CARTÃO CARUARU -->
                 <div class="glass-card p-5 text-center reveal group hover:bg-white/20 hover:-translate-y-2 hover:text-white border border-transparent hover:border-white/50 transition-all duration-300">
                     <div class="text-2xl font-bold border-b border-white/30 pb-2 mb-3 text-white">Caruaru / PE</div>
                     <div class="font-heading text-xl mb-2 text-white">19/03</div>
@@ -398,6 +435,7 @@
             </div>
         </section>
 
+        <!-- SECÇÃO: CONFIRA O EVENTO (CRONOLOGIA DETALHADA) -->
         <section id="detalhes-evento" class="mb-16 pt-10">
             <div class="text-center mb-16 reveal">
                 <h2 class="font-heading font-extrabold text-4xl md:text-5xl mb-4 text-white"><i class="fa-solid fa-podcast mr-3"></i> Programação BrisaCast</h2>
@@ -405,33 +443,37 @@
             </div>
 
             <div class="relative max-w-5xl mx-auto py-10">
+                <!-- Linha Central da Cronologia -->
                 <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-white/30 transform md:-translate-x-1/2 rounded-full"></div>
 
+                <!-- 01. Abertura (Esquerda) -->
                 <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
                     <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:scale-150 transition-transform duration-300"></div>
                     
                     <div class="w-full md:w-[46%] glass-card p-5 md:p-6 border-l-4 md:border-l-0 md:border-t-4 md:border-r-4 border-brisa-blue ml-12 md:ml-0 relative text-left md:text-right">
                         <div class="md:hidden absolute -left-10 top-6 w-5 h-5 rounded-full bg-brisa-blue border-4 border-white z-10"></div>
                         
-                        <span class="bg-white/20 text-white border border-white/50 text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">09:00 a 09:30</span>
-                        <h3 class="font-heading text-2xl font-bold mb-2 text-white">Abertura & Visão Estratégica</h3>
-                        <p class="text-sm opacity-90 mb-4 text-white">Abertura com o MVV | Linha do tempo da “Unibrisa” e a visão de ecossistema de aprendizagem.<br><i class="fa-solid fa-location-dot mt-2 text-white"></i> Auditório [Sede] & Transmissão Regionais</p>
+                        <span class="bg-white/20 text-white border border-white/50 text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">08:45 a 09:30</span>
+                        <h3 class="font-heading text-2xl font-bold mb-2 text-white">Abertura, Visão Estratégica & Embaixadoras da Marca</h3>
+                        <p class="text-sm opacity-90 mb-4 text-white">Abertura com o MVV | Linha do tempo da “Unibrisa” e a visão de ecossistema de aprendizagem.<br><strong>+ Lançamento da Campanha Embaixadoras da Marca.</strong><br><i class="fa-solid fa-location-dot mt-2 text-white"></i> Auditório [Sede] & Transmissão Regionais</p>
                         
                         <div class="mt-4 pt-4 border-t border-white/20 flex flex-col md:items-end">
                             <p class="text-xs font-bold mb-3 uppercase text-white">Convidados & Facilitação</p>
                             <div class="flex flex-wrap gap-2 md:justify-end">
                                 <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQGv_DSBWURHIQ/profile-displayphoto-shrink_400_400/B4DZf0IZNQHkAo-/0/1752147531786?e=1774483200&v=beta&t=gAkyrqnM0eV-VILDWjBGzY5dfUz1KNAE0-v-zYJHumE" alt="Valcerlan" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-bold">Valcerlan Almeida</span></div>
                                 <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQEa5bciQ1lbxA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1680806397406?e=1774483200&v=beta&t=QaEpHy6y7NeTXC3CSCjYpse0Iry4Je_vHxKvim3vup8" alt="Flavia Paulino" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-bold">Flavia Paulino</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQG5zHuPAI-aHQ/profile-displayphoto-shrink_400_400/B4DZYs27riG8Ak-/0/1744509320388?e=1774483200&v=beta&t=OjdwKDgELKRftI9ZZ8AOo0klRinG59y7uH6kqziF59Q" alt="Daiane Borges" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Daiane Borges</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQEJiVRYBBOftA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1710777328302?e=1774483200&v=beta&t=LG1Jgmb3yfkT8T3GbTVw01vV8okUwdonWltE52AEbHQ" alt="Simone Caixeta" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Simone Caixeta</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Daiane%20Borges.jpg" alt="Daiane Borges" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Daiane Borges</span></div>
                                 <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://media.licdn.com/dms/image/v2/C4D03AQEdvIb2yYv5kQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1626027937696?e=1774483200&v=beta&t=4_fy4ifGuMcvSQe5XLHgr0C1OH133ObJdqiWX6JdsEU" alt="Leandro Chalegra" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Leandro Chalegra</span></div>
                                 <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQGWQ9NhOj2mZQ/profile-displayphoto-scale_400_400/B4DZjRym2tGgAk-/0/1755866362712?e=1774483200&v=beta&t=y6ikDOIH7XxE33hBY0fgzkb0SqjfEjGKu97K2rF2obo" alt="Airton" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Airton</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQGtIcmAmTTreQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1722284494780?e=1774483200&v=beta&t=r6Kk1rce6LSrWI6Jqac2JqKzlUOxbknRuQ4pP_V9ZJI" alt="Jordão Estevam" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Jordão Estevam</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://media.licdn.com/dms/image/v2/D4E03AQEpqj6fMXBY5Q/profile-displayphoto-scale_400_400/B4EZwzCpPGIIAg-/0/1770382858855?e=1775088000&v=beta&t=cx8lhf8nqU6IMc8LUkArdWAHXljPKZGGY_dun_wFDCw" alt="Welliton Rocha" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Welliton Rocha</span></div>
                             </div>
                         </div>
                     </div>
                     <div class="hidden md:block w-[46%]"></div>
                 </div>
 
+                <!-- 02. Painel 01 (Direita) -->
                 <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
                     <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:scale-150 transition-transform duration-300"></div>
                     <div class="hidden md:block w-[46%]"></div>
@@ -452,6 +494,7 @@
                     </div>
                 </div>
 
+                <!-- 03. Painel 02 (Esquerda) -->
                 <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
                     <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:scale-150 transition-transform duration-300"></div>
                     <div class="w-full md:w-[46%] glass-card p-5 md:p-6 border-l-4 md:border-l-0 md:border-t-4 md:border-r-4 border-brisa-blue ml-12 md:ml-0 relative text-left md:text-right">
@@ -466,13 +509,14 @@
                                 <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQFIKz7KHsJb5Q/profile-displayphoto-shrink_100_100/B4DZdfQ3PDG8AU-/0/1749649946241?e=1774483200&v=beta&t=GcA4xKs-7bPxbC0_GroBDp1LQxsh2ygbImlMqdKTR-8" alt="David Barreto" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">David Barreto</span></div>
                                 <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQECBC4zx8qwxg/profile-displayphoto-shrink_400_400/B4DZdfQIcyGYAk-/0/1749649754809?e=1774483200&v=beta&t=u6qSWIWaINt8l40BFz8wBrEJky4It0J2YrMf6ZOIlxs" alt="Juliana Fernandes" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Juliana Fernandes</span></div>
                                 <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><div class="w-6 h-6 rounded-full border border-white/50 bg-black/40 flex items-center justify-center overflow-hidden"><i class="fa-solid fa-user text-[14px] text-white/70 mt-[6px]"></i></div><span class="text-[11px] font-semibold">Luciana Paulo</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><div class="w-6 h-6 rounded-full border border-white/50 bg-black/40 flex items-center justify-center overflow-hidden"><i class="fa-solid fa-user text-[14px] text-white/70 mt-[6px]"></i></div><span class="text-[11px] font-semibold">João Paulo Araújo</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Jo%C3%A3o%20Paulo%20Ara%C3%BAjo.png" alt="João Paulo Araújo" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">João Paulo Araújo</span></div>
                             </div>
                         </div>
                     </div>
                     <div class="hidden md:block w-[46%]"></div>
                 </div>
 
+                <!-- 04. Almoço (Direita) -->
                 <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
                     <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:scale-150 transition-transform duration-300"></div>
                     <div class="hidden md:block w-[46%]"></div>
@@ -484,6 +528,7 @@
                     </div>
                 </div>
 
+                <!-- 05. Painel 03 (Esquerda) -->
                 <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
                     <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:scale-150 transition-transform duration-300"></div>
                     <div class="w-full md:w-[46%] glass-card p-5 md:p-6 border-l-4 md:border-l-0 md:border-t-4 md:border-r-4 border-brisa-blue ml-12 md:ml-0 relative text-left md:text-right">
@@ -504,6 +549,7 @@
                     <div class="hidden md:block w-[46%]"></div>
                 </div>
 
+                <!-- 06. Café (Direita) -->
                 <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
                     <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:scale-150 transition-transform duration-300"></div>
                     <div class="hidden md:block w-[46%]"></div>
@@ -515,6 +561,7 @@
                     </div>
                 </div>
 
+                <!-- 07. Painel 04 (Esquerda) -->
                 <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
                     <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:scale-150 transition-transform duration-300"></div>
                     <div class="w-full md:w-[46%] glass-card p-5 md:p-6 border-l-4 md:border-l-0 md:border-t-4 md:border-r-4 border-brisa-blue ml-12 md:ml-0 relative text-left md:text-right">
@@ -526,40 +573,51 @@
                             <div class="flex flex-wrap gap-2 md:justify-end">
                                 <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQGv_DSBWURHIQ/profile-displayphoto-shrink_400_400/B4DZf0IZNQHkAo-/0/1752147531786?e=1774483200&v=beta&t=gAkyrqnM0eV-VILDWjBGzY5dfUz1KNAE0-v-zYJHumE" alt="Valcerlan" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-bold">Valcerlan Almeida</span></div>
                                 <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQEa5bciQ1lbxA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1680806397406?e=1774483200&v=beta&t=QaEpHy6y7NeTXC3CSCjYpse0Iry4Je_vHxKvim3vup8" alt="Flavia Paulino" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-bold">Flavia Paulino</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><div class="w-6 h-6 rounded-full border border-white/50 bg-black/40 flex items-center justify-center overflow-hidden"><i class="fa-solid fa-user text-[14px] text-white/70 mt-[6px]"></i></div><span class="text-[11px] font-semibold">Ângelo Pessoa</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><div class="w-6 h-6 rounded-full border border-white/50 bg-black/40 flex items-center justify-center overflow-hidden"><i class="fa-solid fa-user text-[14px] text-white/70 mt-[6px]"></i></div><span class="text-[11px] font-semibold">Romário Aquino</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/%C3%82ngelo%20Pessoa.jpeg" alt="Ângelo Pessoa" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Ângelo Pessoa</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Rom%C3%A1rio%20Aquino.png" alt="Romário Aquino" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Romário Aquino</span></div>
                             </div>
                         </div>
                     </div>
                     <div class="hidden md:block w-[46%]"></div>
                 </div>
 
-                <div class="relative flex flex-col md:flex-row items-center justify-between reveal group">
+                <!-- 08. Quizzes (Direita) -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
                     <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:scale-150 transition-transform duration-300"></div>
                     <div class="hidden md:block w-[46%]"></div>
                     <div class="w-full md:w-[46%] glass-card p-5 md:p-6 border-l-4 md:border-t-4 border-brisa-blue ml-12 md:ml-0 relative">
                         <div class="md:hidden absolute -left-10 top-6 w-5 h-5 rounded-full bg-brisa-blue border-4 border-white z-10"></div>
-                        <span class="bg-white/20 text-white border border-white/50 text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">16:30 a 17:15</span>
-                        <h3 class="font-heading text-2xl font-bold mb-2 text-white"><i class="fa-solid fa-ranking-star mr-2 text-white"></i> Resultados, Embaixadoras da Marca & Encerramento</h3>
-                        <p class="text-sm opacity-90 text-white mb-4">Anúncio dos resultados dos quizzes, lançamento da campanha Embaixadoras da Marca e encerramento oficial.</p>
-                        
-                        <div class="mt-4 pt-4 border-t border-white/20 flex flex-col items-start">
+                        <span class="bg-white/20 text-white border border-white/50 text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">16:30 a 16:50</span>
+                        <h3 class="font-heading text-2xl font-bold mb-2 text-white"><i class="fa-solid fa-ranking-star mr-2 text-white"></i> Resultados dos Quizzes</h3>
+                        <p class="text-sm opacity-90 text-white">Anúncio oficial da realização e dos grandes resultados do dia.</p>
+                    </div>
+                </div>
+
+                <!-- 09. Encerramento (Esquerda) -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between reveal group">
+                    <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:scale-150 transition-transform duration-300"></div>
+                    <div class="w-full md:w-[46%] glass-card p-5 md:p-6 border-l-4 md:border-l-0 md:border-t-4 md:border-r-4 border-brisa-blue ml-12 md:ml-0 relative text-left md:text-right">
+                        <div class="md:hidden absolute -left-10 top-6 w-5 h-5 rounded-full bg-brisa-blue border-4 border-white z-10"></div>
+                        <span class="bg-white/20 text-white border border-white/50 text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">16:50 a 17:00</span>
+                        <h3 class="font-heading text-2xl font-bold mb-2 text-white">Encerramento Oficial</h3>
+                        <div class="mt-4 pt-4 border-t border-white/20 flex flex-col md:items-end">
                             <p class="text-xs font-bold mb-3 uppercase text-white">Convidados & Facilitação</p>
-                            <div class="flex flex-wrap gap-2">
+                            <div class="flex flex-wrap gap-2 md:justify-end">
                                 <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQGv_DSBWURHIQ/profile-displayphoto-shrink_400_400/B4DZf0IZNQHkAo-/0/1752147531786?e=1774483200&v=beta&t=gAkyrqnM0eV-VILDWjBGzY5dfUz1KNAE0-v-zYJHumE" alt="Valcerlan" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-bold">Valcerlan Almeida</span></div>
                                 <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQEa5bciQ1lbxA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1680806397406?e=1774483200&v=beta&t=QaEpHy6y7NeTXC3CSCjYpse0Iry4Je_vHxKvim3vup8" alt="Flavia Paulino" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-bold">Flavia Paulino</span></div>
                                 <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQF2ASTDePwLiQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1695233276678?e=1774483200&v=beta&t=9z1_CWHjAT_m7KAsIBWUXoEBmXGqke33WoFTEcer6mU" alt="Roberto" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Roberto Nogueira</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQGtIcmAmTTreQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1722284494780?e=1774483200&v=beta&t=r6Kk1rce6LSrWI6Jqac2JqKzlUOxbknRuQ4pP_V9ZJI" alt="Jordão Estevam" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Jordão</span></div>
+                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQGtIcmAmTTreQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1722284494780?e=1774483200&v=beta&t=r6Kk1rce6LSrWI6Jqac2JqKzlUOxbknRuQ4pP_V9ZJI" alt="Jordão Estevam" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Jordão Estevam</span></div>
                                 <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQH_9IWtfo86wQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1706018736673?e=1774483200&v=beta&t=Fmc-dbzm9VPrs3UFaC1qOf8oCeewYfiaN4Qk8HNRAuA" alt="João P. Estevam" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">João P. Estevam</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><div class="w-6 h-6 rounded-full border border-white/50 bg-black/40 flex items-center justify-center overflow-hidden"><i class="fa-solid fa-user text-[14px] text-white/70 mt-[6px]"></i></div><span class="text-[11px] font-semibold">Welliton Rocha</span></div>
                             </div>
                         </div>
                     </div>
+                    <div class="hidden md:block w-[46%]"></div>
                 </div>
 
             </div>
         </section>
 
+        <!-- SECÇÃO: UNIVERSO BRISA & MARATONA -->
         <section id="universo-brisa" class="mb-24 pt-10">
             <div class="text-center mb-16 reveal">
                 <h2 class="font-heading font-extrabold text-4xl md:text-5xl mb-4 text-white"><i class="fa-solid fa-rocket mr-3"></i> Universo Brisa & Maratona</h2>
@@ -568,6 +626,7 @@
 
             <div class="grid md:grid-cols-2 gap-8">
                 
+                <!-- Cartão: Campanha Social & Sorteios -->
                 <article class="glass-card p-8 reveal border-t-8 border-t-brisa-blue relative overflow-hidden flex flex-col justify-between">
                     <div class="absolute -right-6 -bottom-6 opacity-10 text-white transition-transform hover:scale-110 duration-500">
                         <i class="fa-solid fa-hashtag text-9xl"></i>
@@ -587,6 +646,7 @@
                     </div>
                 </article>
 
+                <!-- Cartão: Maratona do Conhecimento -->
                 <article class="glass-card p-8 reveal border-t-8 border-t-brisa-blue relative overflow-hidden">
                     <div class="absolute -right-6 -top-6 opacity-10 text-white">
                         <i class="fa-solid fa-flag-checkered text-9xl"></i>
@@ -607,6 +667,7 @@
                     </ul>
                 </article>
 
+                <!-- Cartão: Hub Universo Brisa -->
                 <article class="glass-card p-8 reveal border-l-8 border-l-brisa-blue relative">
                     <h3 class="font-heading text-2xl font-extrabold mb-4 text-white"><i class="fa-solid fa-layer-group mr-2"></i> No Universo Brisa</h3>
                     <p class="text-sm mb-5 font-medium text-white">Sua central de desenvolvimento contínuo está recheada de novidades para manter você sempre atualizado:</p>
@@ -636,6 +697,7 @@
                     </div>
                 </article>
 
+                <!-- Cartão: Reconhecimento & Dinâmicas -->
                 <article class="glass-card p-8 reveal border-l-8 border-l-brisa-blue relative">
                     <h3 class="font-heading text-2xl font-extrabold mb-4 text-white"><i class="fa-solid fa-ranking-star mr-2 text-white"></i> Reconhecimento & Foco</h3>
                     
@@ -656,8 +718,10 @@
 
     </main>
 
+    <!-- Rodapé -->
     <footer class="bg-brisa-blue text-white/80 py-8 text-center border-t border-white/20 relative z-10">
         <div class="container mx-auto px-4">
+            <!-- SECÇÃO DE LOGOS ATUALIZADA AQUI -->
             <div class="flex justify-center items-center gap-6 mb-4">
                 <img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/logo%20Unibrisa.png" alt="Logo Unibrisa" class="h-5 md:h-6 w-auto object-contain brightness-0 invert">
                 <img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/logo%20brisanet.png" alt="Logo Brisanet" class="h-5 md:h-6 w-auto object-contain brightness-0 invert">
@@ -667,10 +731,12 @@
         </div>
     </footer>
 
+    <!-- Botão Voltar ao Topo -->
     <button id="backToTopBtn" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-brisa-blue backdrop-blur-sm border-2 border-white text-white transition-all duration-300 z-50 opacity-0 pointer-events-none translate-y-4 hover:bg-brisa-dark hover:scale-110 flex items-center justify-center focus:outline-none shadow-lg" aria-label="Voltar ao topo">
         <i class="fa-solid fa-chevron-up text-xl"></i>
     </button>
 
+    <!-- Scripts para Animações -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Intersection Observer para animações no scroll
