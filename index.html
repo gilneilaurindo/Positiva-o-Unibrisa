@@ -83,54 +83,23 @@
     </script>
 
     <style>
-        /* Estilos customizados para elementos mais complexos */
-        body {
-            background-color: #FF7E05;
-            color: white;
-            overflow-x: hidden;
-        }
-
-        /* Sobreposição de padrão de pontos (halftone) semelhante à imagem */
+        body { background-color: #FF7E05; color: white; overflow-x: hidden; }
         .pattern-overlay {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
             background-image: radial-gradient(rgba(255,255,255,0.1) 2px, transparent 2px);
-            background-size: 20px 20px;
-            pointer-events: none;
-            z-index: -1;
+            background-size: 20px 20px; pointer-events: none; z-index: -1;
         }
-
-        /* Cartões com efeito de vidro (Glassmorphism) */
         .glass-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            border-radius: 1.5rem;
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.5); border-radius: 1.5rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
-        .glass-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            border-color: rgba(255, 255, 255, 0.8);
-        }
-
-        /* Animações de Scroll */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Barra de rolagem customizada */
+        .glass-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); border-color: rgba(255, 255, 255, 0.8); }
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.1); }
         ::-webkit-scrollbar-thumb { background: #2242D4; border-radius: 5px; border: 2px solid rgba(0,0,0,0.1); }
-        ::-webkit-scrollbar-thumb:hover { background: #1A34A8; }
     </style>
 </head>
 <body class="antialiased font-sans relative">
@@ -142,27 +111,15 @@
         <p class="mt-6 text-white font-heading font-bold text-xl animate-pulse tracking-[0.2em]">CARREGANDO...</p>
     </div>
 
-    <div class="fixed top-0 left-0 w-full h-screen h-[100dvh] bg-cover bg-center bg-no-repeat z-[-2] pointer-events-none" style="background-image: url('https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Plano%20de%20fundo.png');"></div>
-
+    <div class="fixed top-0 left-0 w-full h-screen bg-cover bg-center bg-no-repeat z-[-2] pointer-events-none" style="background-image: url('https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Plano%20de%20fundo.png');"></div>
     <div class="pattern-overlay"></div>
-
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-        <i class="fa-solid fa-graduation-cap absolute top-[15%] left-[10%] text-6xl text-white/10 animate-float"></i>
-        <i class="fa-solid fa-book-open-reader absolute top-[25%] right-[15%] text-7xl text-white/10 animate-float-delayed"></i>
-        <i class="fa-solid fa-brain absolute bottom-[30%] left-[20%] text-8xl text-white/5 animate-pulse-slow"></i>
-        <i class="fa-solid fa-lightbulb absolute bottom-[20%] right-[10%] text-5xl text-white/20 animate-float"></i>
-        <i class="fa-solid fa-laptop-code absolute top-[50%] left-[5%] text-5xl text-white/10 animate-float-delayed"></i>
-        <i class="fa-solid fa-chalkboard-user absolute top-[60%] right-[5%] text-6xl text-white/10 animate-float"></i>
-    </div>
 
     <header class="min-h-screen flex flex-col justify-center items-center text-center p-6 relative z-10">
         <div class="reveal active w-full max-w-4xl mx-auto flex flex-col items-center">
-            
             <div class="w-40 h-40 md:w-56 md:h-56 mb-6 relative hover:scale-110 transition-transform duration-500">
                 <img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Icone.png" alt="Ícone Unibrisa" class="w-full h-full object-contain drop-shadow-lg brightness-0 invert">
             </div>
-
-            <h1 class="font-heading text-4xl sm:text-5xl md:text-7xl tracking-tight mb-4 leading-tight hover:animate-wiggle cursor-default">
+            <h1 class="font-heading text-4xl sm:text-5xl md:text-7xl tracking-tight mb-4 leading-tight">
                 <span class="font-extrabold block text-white">Programação</span>
                 <span class="font-normal block text-3xl sm:text-4xl md:text-6xl mt-2 text-white">Aniversário</span>
                 <span class="font-bold text-white border-b-4 border-white pb-2 inline-block mt-4">Unibrisa</span>
@@ -170,238 +127,10 @@
         </div>
     </header>
 
-    <main class="container mx-auto px-4 py-10 md:py-16 max-w-6xl relative z-10">
-
-        <section id="programacao" class="mb-24 pt-10">
-            <div class="text-center mb-16 reveal">
-                <h2 class="font-heading font-extrabold text-4xl md:text-5xl mb-4 text-white"><i class="fa-solid fa-calendar-days mr-3"></i> Programação Oficial</h2>
-                <p class="text-xl opacity-90 text-white">Confira a agenda completa das ativações da Unibrisa.</p>
-            </div>
-
-            <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
-                <article class="glass-card p-6 reveal border-t-8 border-t-brisa-blue relative overflow-hidden group">
-                    <div class="absolute top-4 right-4 text-white/20 group-hover:text-white transition-colors duration-500">
-                        <i class="fa-solid fa-microchip text-4xl"></i>
-                    </div>
-                    <h3 class="font-heading text-2xl font-extrabold mb-1 text-white">Positivação Unibrisa</h3>
-                    <p class="text-lg font-bold bg-white/20 border border-white/50 text-white inline-block px-4 py-1 rounded-full mb-8 shadow-sm">Dia 01: 17/03</p>
-
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4 border-b border-white/20 pb-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">01</div>
-                            <div class="flex-grow">
-                                <h4 class="font-bold text-base leading-tight mb-1 text-white">BrisaCast: Live com Pautas</h4>
-                                <p class="text-xs opacity-90 font-medium text-white">Geral | Matriz: Auditório<br>Regionais: Universo Brisa</p>
-                            </div>
-                            <div class="flex-shrink-0 font-bold text-xs mt-1 text-white">09:00-17:00</div>
-                        </div>
-                        <div class="flex items-start gap-4 border-b border-white/20 pb-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">02</div>
-                            <div class="flex-grow">
-                                <h4 class="font-bold text-base leading-tight mb-1 text-white">Matriz Pereiro/CE</h4>
-                                <p class="text-[11px] opacity-90 font-medium text-white">Rodovia CE-138, Trecho Pereiro - CE Divisa com RN - Km 14 Estrada de Acesso Brisa 1km - Portão A Prédio 2 - Entrada 3 - Térreo</p>
-                            </div>
-                            <div class="flex-shrink-0 font-bold text-[10px] text-right mt-1 text-white leading-tight">10h30 às 15h00</div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">03</div>
-                            <div class="flex-grow">
-                                <h4 class="font-bold text-base leading-tight mb-1 text-white">Parceiras: Estude Conosco!</h4>
-                                <p class="text-xs opacity-90 font-medium text-white">Matriz | Apresentação de Cursos e ofertas</p>
-                            </div>
-                            <div class="flex-shrink-0 font-bold text-xs mt-1 text-white">10:30-15:00</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="glass-card p-6 reveal border-t-8 border-t-brisa-blue relative overflow-hidden group">
-                    <div class="absolute top-4 right-4 text-white/20 group-hover:text-white transition-colors duration-500">
-                        <i class="fa-solid fa-microchip text-4xl"></i>
-                    </div>
-                    <h3 class="font-heading text-2xl font-extrabold mb-1 text-white">Positivação Unibrisa</h3>
-                    <p class="text-lg font-bold bg-white/20 border border-white/50 text-white inline-block px-4 py-1 rounded-full mb-8 shadow-sm">Dia 02: 18/03</p>
-
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-4 border-b border-white/20 pb-3">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">01</div>
-                            <div class="flex-grow">
-                                <h4 class="font-bold text-base leading-tight mb-1 text-white">Parnamirim/RN</h4>
-                                <p class="text-[11px] opacity-90 font-medium text-white"><strong>Loja:</strong> Av. Brigadeiro Everaldo Breves nº 152, Loja 21, Bairro Centro</p>
-                            </div>
-                            <div class="flex-shrink-0 font-bold text-[10px] text-right mt-1 text-white leading-tight">08h30 às 09h30<br>10h00 às 11h00</div>
-                        </div>
-                        <div class="flex items-start gap-4 border-b border-white/20 pb-3">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">02</div>
-                            <div class="flex-grow">
-                                <h4 class="font-bold text-base leading-tight mb-1 text-white">Juazeiro do Norte/CE</h4>
-                                <p class="text-[11px] opacity-90 font-medium text-white"><strong>Prédio Administrativo:</strong> R. João Cândido Fontes, Nº 54, Térreo, Bairro Cajuína São Geraldo</p>
-                            </div>
-                            <div class="flex-shrink-0 font-bold text-[10px] text-right mt-1 text-white leading-tight">08h30 às 09h30<br>10h00 às 11h00</div>
-                        </div>
-                        <div class="flex items-start gap-4 border-b border-white/20 pb-3">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">03</div>
-                            <div class="flex-grow">
-                                <h4 class="font-bold text-base leading-tight mb-1 text-white">Abreu e Lima/PE</h4>
-                                <p class="text-[11px] opacity-90 font-medium text-white"><strong>Estoque:</strong> Avenida Ingo Hering, Rodovia PE 18, 1424, Bairro Distrito Industrial</p>
-                            </div>
-                            <div class="flex-shrink-0 font-bold text-[10px] text-right mt-1 text-white leading-tight">08h30 às 09h30<br>10h00 às 11h00</div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">04</div>
-                            <div class="flex-grow">
-                                <h4 class="font-bold text-base leading-tight mb-1 text-white">Fortaleza/CE</h4>
-                                <p class="text-[11px] opacity-90 font-medium text-white"><strong>Prédio Administrativo:</strong> Av. Washington Soares, SN, Qd 5 e 6, Bairro Guararapes</p>
-                            </div>
-                            <div class="flex-shrink-0 font-bold text-[10px] text-right mt-1 text-white leading-tight">08h30 às 09h30<br>14h00 às 15h00</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="glass-card p-6 reveal border-t-8 border-t-brisa-blue relative overflow-hidden group">
-                    <div class="absolute top-4 right-4 text-white/20 group-hover:text-white transition-colors duration-500">
-                        <i class="fa-solid fa-microchip text-4xl"></i>
-                    </div>
-                    <h3 class="font-heading text-2xl font-extrabold mb-1 text-white">Positivação Unibrisa</h3>
-                    <p class="text-lg font-bold bg-white/20 border border-white/50 text-white inline-block px-4 py-1 rounded-full mb-8 shadow-sm">Dia 03: 19/03</p>
-
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-4 border-b border-white/20 pb-3">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">01</div>
-                            <div class="flex-grow">
-                                <h4 class="font-bold text-base leading-tight mb-1 text-white">João Pessoa/PB</h4>
-                                <p class="text-[11px] opacity-90 font-medium text-white"><strong>Loja:</strong> Rua da Candelária, 154 - Bairro Manaíra</p>
-                            </div>
-                            <div class="flex-shrink-0 font-bold text-[10px] text-right mt-1 text-white leading-tight">08h30 às 09h30<br>10h00 às 11h00</div>
-                        </div>
-                        <div class="flex items-start gap-4 border-b border-white/20 pb-3">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">02</div>
-                            <div class="flex-grow">
-                                <h4 class="font-bold text-base leading-tight mb-1 text-white">Pau dos Ferros/RN</h4>
-                                <p class="text-[11px] opacity-90 font-medium text-white"><strong>Prédio Call Center:</strong> R. Zé Lampião, Pau dos Ferros - RN</p>
-                            </div>
-                            <div class="flex-shrink-0 font-bold text-[10px] text-right mt-1 text-white leading-tight">08h30 às 09h30<br>10h00 às 11h00</div>
-                        </div>
-                        <div class="flex items-start gap-4 border-b border-white/20 pb-3">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">03</div>
-                            <div class="flex-grow">
-                                <h4 class="font-bold text-base leading-tight mb-1 text-white">Paulo Afonso/BA</h4>
-                                <p class="text-[11px] opacity-90 font-medium text-white"><strong>Loja:</strong> Avenida Landulfo Alves, 364, Centro</p>
-                            </div>
-                            <div class="flex-shrink-0 font-bold text-[10px] text-right mt-1 text-white leading-tight">08h30 às 09h30<br>10h00 às 11h00</div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">04</div>
-                            <div class="flex-grow">
-                                <h4 class="font-bold text-base leading-tight mb-1 text-white">Caruaru/PE</h4>
-                                <p class="text-[11px] opacity-90 font-medium text-white"><strong>Loja:</strong> Av. Agamenon Magalhaes nº 585, Mauricio de Nassau<br><strong>Resp:</strong> Wedja Oliveira</p>
-                            </div>
-                            <div class="flex-shrink-0 font-bold text-[10px] text-right mt-1 text-white leading-tight">08h30 às 09h30<br>10h00 às 11h00</div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="glass-card p-6 reveal border-t-8 border-t-brisa-blue relative overflow-hidden group">
-                    <div class="absolute top-4 right-4 text-white/20 group-hover:text-white transition-colors duration-500">
-                        <i class="fa-solid fa-microchip text-4xl"></i>
-                    </div>
-                    <h3 class="font-heading text-2xl font-extrabold mb-1 text-white">Positivação Unibrisa</h3>
-                    <p class="text-lg font-bold bg-white/20 border border-white/50 text-white inline-block px-4 py-1 rounded-full mb-8 shadow-sm">Dia 04: 21/03</p>
-
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-4 border-b border-white/20 pb-3">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">01</div>
-                            <div class="flex-grow">
-                                <h4 class="font-bold text-base leading-tight mb-1 text-white">Aracaju/SE</h4>
-                                <p class="text-[11px] opacity-90 font-medium text-white"><strong>Loja:</strong> Av. Hermes Fontes, 370, Bairro Suíça, Aracaju - SE</p>
-                            </div>
-                            <div class="flex-shrink-0 font-bold text-[10px] text-right mt-1 text-white leading-tight">08h30 às 09h30<br>10h00 às 11h00</div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-white flex items-center justify-center font-bold text-sm bg-transparent text-white">02</div>
-                            <div class="flex-grow">
-                                <h4 class="font-bold text-base leading-tight mb-1 text-white">Maceió/AL</h4>
-                                <p class="text-[11px] opacity-90 font-medium text-white"><strong>Loja:</strong> Rua Marieta Lages, Nº 49, Bairro Farol</p>
-                            </div>
-                            <div class="flex-shrink-0 font-bold text-[10px] text-right mt-1 text-white leading-tight">08h30 às 09h30<br>10h00 às 11h00</div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section id="diad" class="mb-24 pt-10">
-            <div class="text-center mb-12 reveal">
-                <h2 class="font-heading font-extrabold text-4xl mb-4 text-white"><i class="fa-solid fa-earth-americas mr-3"></i> Dia D nas Regionais</h2>
-                <p class="text-xl opacity-90 text-white">A energia da Unibrisa espalhada por todos os cantos.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <div class="glass-card p-5 text-center reveal group hover:bg-white/20 hover:-translate-y-2 hover:text-white border border-transparent hover:border-white/50 transition-all duration-300">
-                    <div class="text-2xl font-bold border-b border-white/30 pb-2 mb-3 text-white">Fortaleza / CE</div>
-                    <div class="font-heading text-xl mb-2 text-white">18/03</div>
-                    <p class="text-xs opacity-80 group-hover:opacity-100 text-white transition-opacity"><strong>Prédio Administrativo:</strong> Av. Washington Soares, SN, Qd 5 e 6, Bairro Guararapes</p>
-                </div>
-
-                <div class="glass-card p-5 text-center reveal group hover:bg-white/20 hover:-translate-y-2 hover:text-white border border-transparent hover:border-white/50 transition-all duration-300">
-                    <div class="text-2xl font-bold border-b border-white/30 pb-2 mb-3 text-white">Parnamirim / RN</div>
-                    <div class="font-heading text-xl mb-2 text-white">18/03</div>
-                    <p class="text-xs opacity-80 group-hover:opacity-100 text-white transition-opacity"><strong>Loja:</strong> Av. Brigadeiro Everaldo Breves nº 152, Loja 21, Bairro Centro</p>
-                </div>
-
-                <div class="glass-card p-5 text-center reveal group hover:bg-white/20 hover:-translate-y-2 hover:text-white border border-transparent hover:border-white/50 transition-all duration-300">
-                    <div class="text-2xl font-bold border-b border-white/30 pb-2 mb-3 text-white">Aracaju / SE</div>
-                    <div class="font-heading text-xl mb-2 text-white">21/03</div>
-                    <p class="text-xs opacity-80 group-hover:opacity-100 text-white transition-opacity"><strong>Loja:</strong> Av. Hermes Fontes, 370, Bairro Suíça, Aracaju - SE</p>
-                </div>
-
-                <div class="glass-card p-5 text-center reveal group hover:bg-white/20 hover:-translate-y-2 hover:text-white border border-transparent hover:border-white/50 transition-all duration-300">
-                    <div class="text-2xl font-bold border-b border-white/30 pb-2 mb-3 text-white">Juazeiro do Norte / CE</div>
-                    <div class="font-heading text-xl mb-2 text-white">18/03</div>
-                    <p class="text-xs opacity-80 group-hover:opacity-100 text-white transition-opacity"><strong>Prédio Administrativo:</strong> R. João Cândido Fontes, Nº 54, Térreo, Bairro Cajuína São Geraldo</p>
-                </div>
-
-                <div class="glass-card p-5 text-center reveal group hover:bg-white/20 hover:-translate-y-2 hover:text-white border border-transparent hover:border-white/50 transition-all duration-300">
-                    <div class="text-2xl font-bold border-b border-white/30 pb-2 mb-3 text-white">Abreu e Lima / PE</div>
-                    <div class="font-heading text-xl mb-2 text-white">18/03</div>
-                    <p class="text-xs opacity-80 group-hover:opacity-100 text-white transition-opacity"><strong>Estoque:</strong> Avenida Ingo Hering, Rodovia PE 18, 1424, Bairro Distrito Industrial</p>
-                </div>
-
-                <div class="glass-card p-5 text-center reveal group hover:bg-white/20 hover:-translate-y-2 hover:text-white border border-transparent hover:border-white/50 transition-all duration-300">
-                    <div class="text-2xl font-bold border-b border-white/30 pb-2 mb-3 text-white">Maceió / AL</div>
-                    <div class="font-heading text-xl mb-2 text-white">21/03</div>
-                    <p class="text-xs opacity-80 group-hover:opacity-100 text-white transition-opacity"><strong>Loja:</strong> Rua Marieta Lages, Nº 49, Bairro Farol</p>
-                </div>
-
-                <div class="glass-card p-5 text-center reveal group hover:bg-white/20 hover:-translate-y-2 hover:text-white border border-transparent hover:border-white/50 transition-all duration-300">
-                    <div class="text-2xl font-bold border-b border-white/30 pb-2 mb-3 text-white">João Pessoa / PB</div>
-                    <div class="font-heading text-xl mb-2 text-white">19/03</div>
-                    <p class="text-xs opacity-80 group-hover:opacity-100 text-white transition-opacity"><strong>Loja:</strong> Rua da Candelária, 154 - Bairro Manaíra</p>
-                </div>
-
-                <div class="glass-card p-5 text-center reveal group hover:bg-white/20 hover:-translate-y-2 hover:text-white border border-transparent hover:border-white/50 transition-all duration-300">
-                    <div class="text-2xl font-bold border-b border-white/30 pb-2 mb-3 text-white">Pau dos Ferros / RN</div>
-                    <div class="font-heading text-xl mb-2 text-white">19/03</div>
-                    <p class="text-xs opacity-80 group-hover:opacity-100 text-white transition-opacity"><strong>Prédio Call Center:</strong> R. Zé Lampião, Pau dos Ferros - RN</p>
-                </div>
-
-                <div class="glass-card p-5 text-center reveal group hover:bg-white/20 hover:-translate-y-2 hover:text-white border border-transparent hover:border-white/50 transition-all duration-300">
-                    <div class="text-2xl font-bold border-b border-white/30 pb-2 mb-3 text-white">Paulo Afonso / BA</div>
-                    <div class="font-heading text-xl mb-2 text-white">19/03</div>
-                    <p class="text-xs opacity-80 group-hover:opacity-100 text-white transition-opacity"><strong>Loja:</strong> Avenida Landulfo Alves, 364, Centro</p>
-                </div>
-                
-                <div class="glass-card p-5 text-center reveal group hover:bg-white/20 hover:-translate-y-2 hover:text-white border border-transparent hover:border-white/50 transition-all duration-300">
-                    <div class="text-2xl font-bold border-b border-white/30 pb-2 mb-3 text-white">Caruaru / PE</div>
-                    <div class="font-heading text-xl mb-2 text-white">19/03</div>
-                    <p class="text-xs opacity-80 group-hover:opacity-100 text-white transition-opacity"><strong>Loja:</strong> Av. Agamenon Magalhaes nº 585, Mauricio de Nassau<br><strong>Resp:</strong> Wedja Oliveira</p>
-                </div>
-            </div>
-        </section>
-
+    <main class="container mx-auto px-4 py-10 max-w-6xl relative z-10">
         <section id="detalhes-evento" class="mb-16 pt-10">
             <div class="text-center mb-16 reveal">
                 <h2 class="font-heading font-extrabold text-4xl md:text-5xl mb-4 text-white"><i class="fa-solid fa-podcast mr-3"></i> Programação BrisaCast</h2>
-                <p class="text-xl opacity-90 text-white">Mergulhe nos detalhes dos painéis, horários e conheça os convidados especiais do nosso podcast ao vivo.</p>
             </div>
 
             <div class="relative max-w-5xl mx-auto py-10">
@@ -411,328 +140,44 @@
                     <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:scale-150 transition-transform duration-300"></div>
                     
                     <div class="w-full md:w-[46%] glass-card p-5 md:p-6 border-l-4 md:border-l-0 md:border-t-4 md:border-r-4 border-brisa-blue ml-12 md:ml-0 relative text-left md:text-right">
-                        <div class="md:hidden absolute -left-10 top-6 w-5 h-5 rounded-full bg-brisa-blue border-4 border-white z-10"></div>
-                        
                         <span class="bg-white/20 text-white border border-white/50 text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">08:45 a 09:30</span>
-                        <h3 class="font-heading text-2xl font-bold mb-2 text-white">Abertura, Visão Estratégica & Embaixadoras da Marca</h3>
-                        <p class="text-sm opacity-90 mb-4 text-white">Abertura com o MVV | Linha do tempo da “Unibrisa” e a visão de ecossistema de aprendizagem.<br><strong>+ Lançamento da Campanha Embaixadoras da Marca.</strong><br><i class="fa-solid fa-location-dot mt-2 text-white"></i> Auditório [Sede] & Transmissão Regionais</p>
+                        <h3 class="font-heading text-2xl font-bold mb-2 text-white">Abertura, Visão Estratégica & Embaixadores da Marca</h3>
+                        <p class="text-sm opacity-90 mb-4 text-white">Abertura com o MVV | Linha do tempo da “Unibrisa” e a visão de ecossistema de aprendizagem.<br><strong>+ Lançamento da Campanha Embaixadores da Marca.</strong></p>
                         
                         <div class="mt-4 pt-4 border-t border-white/20 flex flex-col md:items-end">
                             <p class="text-xs font-bold mb-3 uppercase text-white">Convidados & Facilitação</p>
                             <div class="flex flex-wrap gap-2 md:justify-end">
-                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQGv_DSBWURHIQ/profile-displayphoto-shrink_400_400/B4DZf0IZNQHkAo-/0/1752147531786?e=1774483200&v=beta&t=gAkyrqnM0eV-VILDWjBGzY5dfUz1KNAE0-v-zYJHumE" alt="Valcerlan" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-bold">Valcerlan Almeida</span></div>
-                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQEa5bciQ1lbxA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1680806397406?e=1774483200&v=beta&t=QaEpHy6y7NeTXC3CSCjYpse0Iry4Je_vHxKvim3vup8" alt="Flavia Paulino" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-bold">Flavia Paulino</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Daiane%20Borges.jpg" alt="Daiane Borges" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Daiane Borges</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://media.licdn.com/dms/image/v2/C4D03AQEdvIb2yYv5kQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1626027937696?e=1774483200&v=beta&t=4_fy4ifGuMcvSQe5XLHgr0C1OH133ObJdqiWX6JdsEU" alt="Leandro Chalegra" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Leandro Chalegra</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQGWQ9NhOj2mZQ/profile-displayphoto-scale_400_400/B4DZjRym2tGgAk-/0/1755866362712?e=1774483200&v=beta&t=y6ikDOIH7XxE33hBY0fgzkb0SqjfEjGKu97K2rF2obo" alt="Airton" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Airton</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQGtIcmAmTTreQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1722284494780?e=1774483200&v=beta&t=r6Kk1rce6LSrWI6Jqac2JqKzlUOxbknRuQ4pP_V9ZJI" alt="Jordão Estevam" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Jordão Estevam</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://media.licdn.com/dms/image/v2/D4E03AQEpqj6fMXBY5Q/profile-displayphoto-scale_400_400/B4EZwzCpPGIIAg-/0/1770382858855?e=1775088000&v=beta&t=cx8lhf8nqU6IMc8LUkArdWAHXljPKZGGY_dun_wFDCw" alt="Welliton Rocha" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Welliton Rocha</span></div>
-                            </div>
+                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQGv_DSBWURHIQ/profile-displayphoto-shrink_400_400/B4DZf0IZNQHkAo-/0/1752147531786?e=1774483200&v=beta&t=gAkyrqnM0eV-VILDWjBGzY5dfUz1KNAE0-v-zYJHumE" class="w-6 h-6 rounded-full object-cover"><span class="text-[11px] font-bold">Valcerlan Almeida</span></div>
+                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQEa5bciQ1lbxA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1680806397406?e=1774483200&v=beta&t=QaEpHy6y7NeTXC3CSCjYpse0Iry4Je_vHxKvim3vup8" class="w-6 h-6 rounded-full object-cover"><span class="text-[11px] font-bold">Flavia Paulino</span></div>
+                                </div>
                         </div>
                     </div>
                     <div class="hidden md:block w-[46%]"></div>
                 </div>
-
-                <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
-                    <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:scale-150 transition-transform duration-300"></div>
-                    <div class="hidden md:block w-[46%]"></div>
-                    <div class="w-full md:w-[46%] glass-card p-5 md:p-6 border-l-4 md:border-t-4 border-brisa-blue ml-12 md:ml-0 relative">
-                        <div class="md:hidden absolute -left-10 top-6 w-5 h-5 rounded-full bg-brisa-blue border-4 border-white z-10"></div>
-                        <span class="bg-white/20 text-white border border-white/50 text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">09:30 a 10:30</span>
-                        <h3 class="font-heading text-2xl font-bold mb-2 text-white">Painel 01: Cibersegurança no Grupo Brisanet</h3>
-                        
-                        <div class="mt-4 pt-4 border-t border-white/20 flex flex-col items-start">
-                            <p class="text-xs font-bold mb-3 uppercase text-white">Convidados & Facilitação</p>
-                            <div class="flex flex-wrap gap-2">
-                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQGv_DSBWURHIQ/profile-displayphoto-shrink_400_400/B4DZf0IZNQHkAo-/0/1752147531786?e=1774483200&v=beta&t=gAkyrqnM0eV-VILDWjBGzY5dfUz1KNAE0-v-zYJHumE" alt="Valcerlan" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-bold">Valcerlan Almeida</span></div>
-                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQEa5bciQ1lbxA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1680806397406?e=1774483200&v=beta&t=QaEpHy6y7NeTXC3CSCjYpse0Iry4Je_vHxKvim3vup8" alt="Flavia Paulino" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-bold">Flavia Paulino</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Lucas%20Kennedy.jpeg" alt="Lucas Kennedy" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Lucas Kennedy</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/William%20Heller.jpeg" alt="William Heller" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">William Heller</span></div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
-                <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
-                    <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:scale-150 transition-transform duration-300"></div>
-                    <div class="w-full md:w-[46%] glass-card p-5 md:p-6 border-l-4 md:border-l-0 md:border-t-4 md:border-r-4 border-brisa-blue ml-12 md:ml-0 relative text-left md:text-right">
-                        <div class="md:hidden absolute -left-10 top-6 w-5 h-5 rounded-full bg-brisa-blue border-4 border-white z-10"></div>
-                        <span class="bg-white/20 text-white border border-white/50 text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">10:30 a 12:00</span>
-                        <h3 class="font-heading text-2xl font-bold mb-2 text-white">Painel 02: Compliance + Código de Ética de Bolso</h3>
-                        <div class="mt-4 pt-4 border-t border-white/20 flex flex-col md:items-end">
-                            <p class="text-xs font-bold mb-3 uppercase text-white">Convidados & Facilitação</p>
-                            <div class="flex flex-wrap gap-2 md:justify-end">
-                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQGv_DSBWURHIQ/profile-displayphoto-shrink_400_400/B4DZf0IZNQHkAo-/0/1752147531786?e=1774483200&v=beta&t=gAkyrqnM0eV-VILDWjBGzY5dfUz1KNAE0-v-zYJHumE" alt="Valcerlan" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-bold">Valcerlan Almeida</span></div>
-                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQEa5bciQ1lbxA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1680806397406?e=1774483200&v=beta&t=QaEpHy6y7NeTXC3CSCjYpse0Iry4Je_vHxKvim3vup8" alt="Flavia Paulino" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-bold">Flavia Paulino</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQFIKz7KHsJb5Q/profile-displayphoto-shrink_100_100/B4DZdfQ3PDG8AU-/0/1749649946241?e=1774483200&v=beta&t=GcA4xKs-7bPxbC0_GroBDp1LQxsh2ygbImlMqdKTR-8" alt="David Barreto" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">David Barreto</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQECBC4zx8qwxg/profile-displayphoto-shrink_400_400/B4DZdfQIcyGYAk-/0/1749649754809?e=1774483200&v=beta&t=u6qSWIWaINt8l40BFz8wBrEJky4It0J2YrMf6ZOIlxs" alt="Juliana Fernandes" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Juliana Fernandes</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Luciana%20Paulo.jpeg" alt="Luciana Paulo" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Luciana Paulo</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Jo%C3%A3o%20Paulo%20Ara%C3%BAjo.png" alt="João Paulo Araújo" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">João Paulo Araújo</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hidden md:block w-[46%]"></div>
-                </div>
-
-                <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
-                    <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:scale-150 transition-transform duration-300"></div>
-                    <div class="hidden md:block w-[46%]"></div>
-                    <div class="w-full md:w-[46%] bg-white/10 backdrop-blur-md p-5 md:p-6 border-l-4 md:border-t-4 border-brisa-blue ml-12 md:ml-0 relative rounded-2xl">
-                        <div class="md:hidden absolute -left-10 top-6 w-5 h-5 rounded-full bg-brisa-blue border-4 border-white z-10"></div>
-                        <span class="bg-brisa-blue text-white text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">12:00 a 13:30</span>
-                        <h3 class="font-heading text-2xl font-bold mb-2 text-white"><i class="fa-solid fa-utensils mr-2"></i> Almoço & Área Vivencial</h3>
-                        <p class="text-sm opacity-90 text-white">Participe das ações e dinâmicas na área vivencial como a Blitz de segurança e nossos Jogos interativos!</p>
-                    </div>
-                </div>
-
-                <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
-                    <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:scale-150 transition-transform duration-300"></div>
-                    <div class="w-full md:w-[46%] glass-card p-5 md:p-6 border-l-4 md:border-l-0 md:border-t-4 md:border-r-4 border-brisa-blue ml-12 md:ml-0 relative text-left md:text-right">
-                        <div class="md:hidden absolute -left-10 top-6 w-5 h-5 rounded-full bg-brisa-blue border-4 border-white z-10"></div>
-                        <span class="bg-white/20 text-white border border-white/50 text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">13:30 a 14:30</span>
-                        <h3 class="font-heading text-2xl font-bold mb-2 text-white">Painel 03: Google Cloud <i class="fa-brands fa-google ml-2"></i></h3>
-                        <p class="text-sm opacity-90 mb-4 text-white">"Prompt de produtividade com Gemini para Workspace"</p>
-                        <div class="mt-4 pt-4 border-t border-white/20 flex flex-col md:items-end">
-                            <p class="text-xs font-bold mb-3 uppercase text-white">Convidados & Facilitação</p>
-                            <div class="flex flex-wrap gap-2 md:justify-end">
-                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQGv_DSBWURHIQ/profile-displayphoto-shrink_400_400/B4DZf0IZNQHkAo-/0/1752147531786?e=1774483200&v=beta&t=gAkyrqnM0eV-VILDWjBGzY5dfUz1KNAE0-v-zYJHumE" alt="Valcerlan" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-bold">Valcerlan Almeida</span></div>
-                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQEa5bciQ1lbxA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1680806397406?e=1774483200&v=beta&t=QaEpHy6y7NeTXC3CSCjYpse0Iry4Je_vHxKvim3vup8" alt="Flavia Paulino" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-bold">Flavia Paulino</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Natan%20Valenciano.jpeg" alt="Natan Valenciano" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Natan Valenciano</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Igor%20Carolino.jpeg" alt="Igor Carolino" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Igor Carolino</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hidden md:block w-[46%]"></div>
-                </div>
-
-                <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
-                    <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:scale-150 transition-transform duration-300"></div>
-                    <div class="hidden md:block w-[46%]"></div>
-                    <div class="w-full md:w-[46%] bg-white/10 backdrop-blur-md p-5 md:p-6 border-l-4 md:border-t-4 border-brisa-blue ml-12 md:ml-0 relative rounded-2xl">
-                        <div class="md:hidden absolute -left-10 top-6 w-5 h-5 rounded-full bg-brisa-blue border-4 border-white z-10"></div>
-                        <span class="bg-brisa-blue text-white text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">14:30 a 15:00</span>
-                        <h3 class="font-heading text-2xl font-bold mb-2 text-white"><i class="fa-solid fa-mug-hot mr-2"></i> Pausa para o Café</h3>
-                        <p class="text-sm opacity-90 text-white">Ações e dinâmicas na área vivencial como Blitz de segurança + Jogos interativos continuam.</p>
-                    </div>
-                </div>
-
-                <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
-                    <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:scale-150 transition-transform duration-300"></div>
-                    <div class="w-full md:w-[46%] glass-card p-5 md:p-6 border-l-4 md:border-l-0 md:border-t-4 md:border-r-4 border-brisa-blue ml-12 md:ml-0 relative text-left md:text-right">
-                        <div class="md:hidden absolute -left-10 top-6 w-5 h-5 rounded-full bg-brisa-blue border-4 border-white z-10"></div>
-                        <span class="bg-white/20 text-white border border-white/50 text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">15:00 a 16:30</span>
-                        <h3 class="font-heading text-2xl font-bold mb-2 text-white">Painel 04: Educação Financeira</h3>
-                        <div class="mt-4 pt-4 border-t border-white/20 flex flex-col md:items-end">
-                            <p class="text-xs font-bold mb-3 uppercase text-white">Convidados & Facilitação</p>
-                            <div class="flex flex-wrap gap-2 md:justify-end">
-                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQGv_DSBWURHIQ/profile-displayphoto-shrink_400_400/B4DZf0IZNQHkAo-/0/1752147531786?e=1774483200&v=beta&t=gAkyrqnM0eV-VILDWjBGzY5dfUz1KNAE0-v-zYJHumE" alt="Valcerlan" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-bold">Valcerlan Almeida</span></div>
-                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQEa5bciQ1lbxA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1680806397406?e=1774483200&v=beta&t=QaEpHy6y7NeTXC3CSCjYpse0Iry4Je_vHxKvim3vup8" alt="Flavia Paulino" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-bold">Flavia Paulino</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/%C3%82ngelo%20Pessoa.jpeg" alt="Ângelo Pessoa" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Ângelo Pessoa</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/Rom%C3%A1rio%20Aquino.png" alt="Romário Aquino" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Romário Fernandes</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hidden md:block w-[46%]"></div>
-                </div>
-
-                <div class="relative flex flex-col md:flex-row items-center justify-between mb-12 reveal group">
-                    <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:scale-150 transition-transform duration-300"></div>
-                    <div class="hidden md:block w-[46%]"></div>
-                    <div class="w-full md:w-[46%] glass-card p-5 md:p-6 border-l-4 md:border-t-4 border-brisa-blue ml-12 md:ml-0 relative">
-                        <div class="md:hidden absolute -left-10 top-6 w-5 h-5 rounded-full bg-brisa-blue border-4 border-white z-10"></div>
-                        <span class="bg-white/20 text-white border border-white/50 text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">16:30 a 16:50</span>
-                        <h3 class="font-heading text-2xl font-bold mb-2 text-white"><i class="fa-solid fa-ranking-star mr-2 text-white"></i> Resultados dos Quizzes</h3>
-                        <p class="text-sm opacity-90 text-white">Anúncio oficial da realização e dos grandes resultados do dia.</p>
-                    </div>
-                </div>
-
-                <div class="relative flex flex-col md:flex-row items-center justify-between reveal group">
-                    <div class="hidden md:flex absolute left-1/2 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full bg-brisa-blue border-4 border-white z-10 shadow-[0_0_15px_rgba(255,255,255,0.5)] group-hover:scale-150 transition-transform duration-300"></div>
-                    <div class="w-full md:w-[46%] glass-card p-5 md:p-6 border-l-4 md:border-l-0 md:border-t-4 md:border-r-4 border-brisa-blue ml-12 md:ml-0 relative text-left md:text-right">
-                        <div class="md:hidden absolute -left-10 top-6 w-5 h-5 rounded-full bg-brisa-blue border-4 border-white z-10"></div>
-                        <span class="bg-white/20 text-white border border-white/50 text-xs font-extrabold px-3 py-1 rounded-full mb-3 inline-block shadow">16:50 a 17:00</span>
-                        <h3 class="font-heading text-2xl font-bold mb-2 text-white">Encerramento Oficial</h3>
-                        <div class="mt-4 pt-4 border-t border-white/20 flex flex-col md:items-end">
-                            <p class="text-xs font-bold mb-3 uppercase text-white">Convidados & Facilitação</p>
-                            <div class="flex flex-wrap gap-2 md:justify-end">
-                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQGv_DSBWURHIQ/profile-displayphoto-shrink_400_400/B4DZf0IZNQHkAo-/0/1752147531786?e=1774483200&v=beta&t=gAkyrqnM0eV-VILDWjBGzY5dfUz1KNAE0-v-zYJHumE" alt="Valcerlan" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-bold">Valcerlan Almeida</span></div>
-                                <div class="flex items-center gap-2 bg-black/20 rounded-full pr-3 p-1 border border-white/10 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQEa5bciQ1lbxA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1680806397406?e=1774483200&v=beta&t=QaEpHy6y7NeTXC3CSCjYpse0Iry4Je_vHxKvim3vup8" alt="Flavia Paulino" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-bold">Flavia Paulino</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQF2ASTDePwLiQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1695233276678?e=1774483200&v=beta&t=9z1_CWHjAT_m7KAsIBWUXoEBmXGqke33WoFTEcer6mU" alt="Roberto" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Roberto Nogueira</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQGtIcmAmTTreQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1722284494780?e=1774483200&v=beta&t=r6Kk1rce6LSrWI6Jqac2JqKzlUOxbknRuQ4pP_V9ZJI" alt="Jordão Estevam" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">Jordão Estevam</span></div>
-                                <div class="flex items-center gap-2 bg-white/10 rounded-full pr-3 p-1 border border-white/20 text-white"><img src="https://media.licdn.com/dms/image/v2/D4D03AQH_9IWtfo86wQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1706018736673?e=1774483200&v=beta&t=Fmc-dbzm9VPrs3UFaC1qOf8oCeewYfiaN4Qk8HNRAuA" alt="João P. Estevam" class="w-6 h-6 rounded-full border border-white/50 object-cover"><span class="text-[11px] font-semibold">João P. Estevam</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hidden md:block w-[46%]"></div>
-                </div>
-
-            </div>
         </section>
-
-        <section id="universo-brisa" class="mb-24 pt-10">
-            <div class="text-center mb-16 reveal">
-                <h2 class="font-heading font-extrabold text-4xl md:text-5xl mb-4 text-white"><i class="fa-solid fa-rocket mr-3"></i> Universo Brisa & Maratona</h2>
-                <p class="text-xl opacity-90 text-white">Engaje, aprenda e seja reconhecido. Explore todas as frentes do nosso ecossistema!</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                
-                <article class="glass-card p-8 reveal border-t-8 border-t-brisa-blue relative overflow-hidden flex flex-col justify-between">
-                    <div class="absolute -right-6 -bottom-6 opacity-10 text-white transition-transform hover:scale-110 duration-500">
-                        <i class="fa-solid fa-hashtag text-9xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-heading text-3xl font-extrabold mb-4 text-white"><i class="fa-solid fa-camera-retro mr-2"></i> Sorteio</h3>
-                        <p class="text-lg mb-4 font-bold bg-white/20 border border-white/50 text-white inline-block px-4 py-1 rounded-full shadow-sm">#ConectadosPeloAprendizado</p>
-                        <p class="text-sm mb-6 leading-relaxed font-medium text-white">Aprender não tem um formato único. <strong>Mostre o seu!</strong> Publique uma foto ou vídeo com a nossa hashtag oficial. Dê visibilidade à sua jornada e valorize o desenvolvimento contínuo da nossa equipe.</p>
-                    </div>
-                    
-                    <div class="bg-black/20 p-5 rounded-xl border border-white/20 flex items-center gap-5 mt-auto relative z-10 backdrop-blur-sm">
-                        <i class="fa-solid fa-gift text-4xl text-white animate-pulse"></i>
-                        <div>
-                            <p class="font-extrabold text-white uppercase tracking-wide text-sm mb-1">Premiação Exclusiva</p>
-                            <p class="text-sm font-semibold text-white">Sorteio de 03 Livros <em>"Mindset: A Nova Psicologia do Sucesso"</em> + Curso de Extensão.</p>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="glass-card p-8 reveal border-t-8 border-t-brisa-blue relative overflow-hidden">
-                    <div class="absolute -right-6 -top-6 opacity-10 text-white">
-                        <i class="fa-solid fa-flag-checkered text-9xl"></i>
-                    </div>
-                    <h3 class="font-heading text-3xl font-extrabold mb-4 text-white"><i class="fa-solid fa-stopwatch mr-2 text-white"></i> Maratona do Conhecimento</h3>
-                    
-                    <div class="flex items-center gap-3 mb-6">
-                        <span class="bg-brisa-blue text-white font-bold px-4 py-1 rounded-full text-sm shadow-sm"><i class="fa-solid fa-calendar mr-1"></i> 16 a 20/03/2026</span>
-                        <span class="border border-white/50 text-white font-bold px-4 py-1 rounded-full text-sm backdrop-blur-sm"><i class="fa-solid fa-laptop-file mr-1"></i> Plataforma Unibrisa</span>
-                    </div>
-
-                    <p class="text-sm mb-4 font-medium leading-relaxed text-white">Prepare-se para 05 dias intensos de imersão. Acelere sua carreira acompanhando nosso roteiro estratégico e garanta a melhor pontuação nos Quizzes!</p>
-                    
-                    <ul class="space-y-4 mb-6 text-sm font-semibold text-white">
-                        <li class="flex items-center group cursor-default"><i class="fa-solid fa-graduation-cap text-white mr-3 text-xl group-hover:animate-bounce"></i> Lançamento dos Cursos Plus Brisa.</li>
-                        <li class="flex items-center group cursor-default"><i class="fa-solid fa-brain text-white mr-3 text-xl group-hover:animate-pulse"></i> Dicas diárias de Aprendizagem e Produtividade.</li>
-                        <li class="flex items-center group cursor-default"><i class="fa-solid fa-chalkboard-user text-white mr-3 text-xl group-hover:animate-wiggle"></i> Regras claras de Pontuação: Aprenda e suba no Ranking!</li>
-                    </ul>
-                </article>
-
-                <article class="glass-card p-8 reveal border-l-8 border-l-brisa-blue relative">
-                    <h3 class="font-heading text-2xl font-extrabold mb-4 text-white"><i class="fa-solid fa-layer-group mr-2"></i> No Universo Brisa</h3>
-                    <p class="text-sm mb-5 font-medium text-white">Sua central de desenvolvimento contínuo está recheada de novidades para manter você sempre atualizado:</p>
-                    
-                    <div class="space-y-4 text-sm text-white">
-                        <div class="bg-white/10 p-4 rounded-lg border border-white/10 flex items-start gap-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:-translate-y-1 cursor-pointer group">
-                            <i class="fa-solid fa-book-open-reader text-3xl text-white mt-1 group-hover:animate-float"></i>
-                            <div>
-                                <strong class="block mb-1 text-base">Acervo Completo</strong>
-                                <p class="opacity-90">Acesso imediato às Formações, Cursos e Jornadas anteriores.</p>
-                            </div>
-                        </div>
-                        <div class="bg-white/10 p-4 rounded-lg border border-white/10 flex items-start gap-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:-translate-y-1 cursor-pointer group">
-                            <i class="fa-solid fa-temperature-arrow-up text-3xl text-white mt-1 group-hover:animate-pulse-slow"></i>
-                            <div>
-                                <strong class="block mb-1 text-base">Termômetros Semanais</strong>
-                                <p class="opacity-90">Acompanhamento transparente do andamento dos Cursos de Cibersegurança e Compliance.</p>
-                            </div>
-                        </div>
-                        <div class="bg-white/10 p-4 rounded-lg border border-white/10 flex items-start gap-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:-translate-y-1 cursor-pointer group">
-                            <i class="fa-solid fa-play-circle text-3xl text-white mt-1 group-hover:animate-spin-slow"></i>
-                            <div>
-                                <strong class="block mb-1 text-base">Inspiração em Vídeo</strong>
-                                <p class="opacity-90">Assista aos depoimentos reais das áreas Técnica e de Operações.</p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="glass-card p-8 reveal border-l-8 border-l-brisa-blue relative">
-                    <h3 class="font-heading text-2xl font-extrabold mb-4 text-white"><i class="fa-solid fa-ranking-star mr-2 text-white"></i> Reconhecimento & Foco</h3>
-                    
-                    <div class="mb-6">
-                        <strong class="text-white uppercase tracking-wider text-xs block mb-2">Reunião de Comunicação</strong>
-                        <p class="text-sm font-medium leading-relaxed bg-black/20 p-3 rounded border border-white/10 text-white">Descubra ao vivo quem domina o Ranking Público: conheceremos o <strong>Top 5 Aprendentes</strong>, a <strong>Regional Destaque</strong> e as áreas com <strong>100% de conclusão do curso de cibersegurança</strong>!</p>
-                    </div>
-
-                    <div class="space-y-6">
-                        <div class="border-l-4 border-white pl-4 py-1 hover:border-white transition-colors duration-300 group">
-                            <strong class="block text-sm mb-1 text-white"><i class="fa-solid fa-bullseye mr-1 group-hover:animate-ping text-white"></i> Foco na Produtividade</strong>
-                            <p class="text-xs opacity-90 font-medium text-white">Otimize seu tempo! Você tem autonomia para se inscrever e participar <strong>apenas dos painéis que realmente deseja</strong>.</p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
     </main>
 
     <footer class="bg-brisa-blue text-white/80 py-8 text-center border-t border-white/20 relative z-10">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-center items-center gap-6 mb-4">
-                <img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/logo%20Unibrisa.png" alt="Logo Unibrisa" class="h-5 md:h-6 w-auto object-contain brightness-0 invert">
-                <img src="https://raw.githubusercontent.com/gilneilaurindo/Positiva-o-Unibrisa/main/logo%20brisanet.png" alt="Logo Brisanet" class="h-5 md:h-6 w-auto object-contain brightness-0 invert">
-            </div>
-            <p class="text-sm text-white">Ecossistema de Aprendizagem 2026</p>
-            <p class="text-xs mt-2 opacity-50 text-white">Desenvolvido para a Programação Positivação</p>
-        </div>
+        <p class="text-sm text-white">Ecossistema de Aprendizagem 2026</p>
     </footer>
-
-    <button id="backToTopBtn" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-brisa-blue backdrop-blur-sm border-2 border-white text-white transition-all duration-300 z-50 opacity-0 pointer-events-none translate-y-4 hover:bg-brisa-dark hover:scale-110 flex items-center justify-center focus:outline-none shadow-lg" aria-label="Voltar ao topo">
-        <i class="fa-solid fa-chevron-up text-xl"></i>
-    </button>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Intersection Observer para animações no scroll
             const reveals = document.querySelectorAll('.reveal');
-
-            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+            const revealOnScroll = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
+                    if (entry.isIntersecting) entry.target.classList.add('active');
                 });
-            }, {
-                root: null,
-                threshold: 0.15, // Ativa quando 15% estiver visível
-                rootMargin: "0px 0px -50px 0px"
-            });
+            }, { threshold: 0.15 });
+            reveals.forEach(reveal => revealOnScroll.observe(reveal));
 
-            reveals.forEach(reveal => {
-                revealOnScroll.observe(reveal);
-            });
-
-            // Lógica do botão Voltar ao Topo
-            const backToTopBtn = document.getElementById('backToTopBtn');
-
-            window.addEventListener('scroll', () => {
-                // Mostra o botão após rolar 300px para baixo
-                if (window.scrollY > 300) {
-                    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
-                    backToTopBtn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
-                } else {
-                    backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
-                    backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
-                }
-            });
-
-            backToTopBtn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-
-            // Lógica do Ecrã de Carregamento (Splash Screen)
             window.addEventListener('load', () => {
-                const splashScreen = document.getElementById('splash-screen');
-                if (splashScreen) {
-                    setTimeout(() => {
-                        splashScreen.style.opacity = '0';
-                        setTimeout(() => {
-                            splashScreen.remove();
-                        }, 700); // Tempo igual ao duration-700
-                    }, 1500); // Exibe a tela por pelo menos 1.5s para a animação aparecer
-                }
+                const splash = document.getElementById('splash-screen');
+                setTimeout(() => {
+                    splash.style.opacity = '0';
+                    setTimeout(() => splash.remove(), 700);
+                }, 1500);
             });
         });
     </script>
